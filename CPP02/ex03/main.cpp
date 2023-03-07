@@ -4,7 +4,7 @@
 
 int	main(void)
 {
-	Point	a(2, 3);
+	// Point	a(2, 3);
 
-	// std::cout << a.x << std::endl;
+	std::cout << "hello" << std::endl;
 }
