@@ -8,6 +8,15 @@ ClapTrap::ClapTrap(std::string newname) :  name(newname)
 	energy = 10;
 	attackdmg = 0;
 }
+ClapTrap::ClapTrap(const std::string& newname, int hp, int en, int attdmg)
+	: name(newname)
+	, hitpoints(hp)
+	, energy(en)
+	, attackdmg(attdmg)
+{
+	std::cout << "ClapTrap " << name;
+	std::cout << " constructor called" << std::endl;
+}
 
 ClapTrap::~ClapTrap()
 {

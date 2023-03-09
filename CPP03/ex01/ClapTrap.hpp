@@ -10,6 +10,7 @@ private:
 	int					attackdmg;
 public:
 	ClapTrap(std::string newname);
+	ClapTrap(const std::string& newname, int hp, int en, int attdmg);
 	~ClapTrap();
 
 	std::string	getName();
