@@ -16,6 +16,9 @@ ClapTrap::ClapTrap(const std::string& newname, int hp, int en, int attdmg)
 {
 	std::cout << "ClapTrap " << name;
 	std::cout << " constructor called" << std::endl;
+	std::cout << "Health " << hitpoints << std::endl;
+	std::cout << "Energy " << energy << std::endl;
+	std::cout << "AttackDamage " << attackdmg << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -52,6 +55,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << name;
 	std::cout << " is attacked by " << amount;
 	std::cout << " points of damage" << std::endl;
+
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -59,4 +63,5 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << name;
 	std::cout << " is reapaired by " << amount;
 	std::cout << " points of damage" << std::endl;
+
 }
