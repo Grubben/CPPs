@@ -16,7 +16,7 @@ Animal::Animal(std::string newType)
 Animal::~Animal()
 {
 	std::cout << "Animal of type " << type;
-	std::cout << "destroyed" << std::endl;
+	std::cout << " destroyed" << std::endl;
 }
 
 std::string	Animal::getType() const
