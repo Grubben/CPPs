@@ -10,7 +10,7 @@ public:
 	Animal();
 	Animal(const Animal& animal);
 	Animal(std::string newType);
-	~Animal();
+	virtual ~Animal();
 
 	std::string	getType() const;
 
