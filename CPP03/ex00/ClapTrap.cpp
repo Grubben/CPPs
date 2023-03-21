@@ -1,17 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: name("ClapTrap")
-	, hitpoints(10)
-	, energy(10)
-	, attackdmg(0)
-{
-	std::cout << "ClapTrap " << name;
-	std::cout << " constructor called" << std::endl;
-}
-
-ClapTrap::ClapTrap(std::string newname)
-	: name(newname)
+	: name("")
 	, hitpoints(10)
 	, energy(10)
 	, attackdmg(0)
@@ -27,6 +17,27 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	std::cout << " constructor called" << std::endl;
 	*this = copy;
 }
+
+ClapTrap::ClapTrap(std::string newname)
+	: name(newname)
+	, hitpoints(10)
+	, energy(10)
+	, attackdmg(0)
+{
+	std::cout << "ClapTrap " << name;
+	std::cout << " constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const std::string newname, int hp, int en, int ad)
+	: name(newname)
+	, hitpoints(hp)
+	, energy(en)
+	, attackdmg(ad)
+{
+	std::cout << "ClapTrap " << name;
+	std::cout << " constructor called" << std::endl;
+}
+
 
 ClapTrap::~ClapTrap()
 {

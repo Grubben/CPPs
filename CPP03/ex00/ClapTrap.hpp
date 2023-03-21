@@ -11,6 +11,7 @@ private:
 public:
 	ClapTrap();
 	ClapTrap(std::string newname);
+	ClapTrap(std::string newname, int hp, int en, int ad);
 	ClapTrap(const ClapTrap &copy);
 	~ClapTrap();
 
