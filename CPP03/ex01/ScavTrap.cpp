@@ -28,6 +28,14 @@ ScavTrap::~ScavTrap()
 	std::cout << " destructor called" << std::endl;
 }
 
+ScavTrap	&ScavTrap::operator= (const ScavTrap &copy)
+{
+	if (this != &copy)
+	{
+	}
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
 	std::cout << "ScavTrap " << getName();
