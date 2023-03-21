@@ -13,6 +13,15 @@ Dog::~Dog()
 	std::cout << " destroyed" << std::endl;
 }
 
+Dog	&Dog::operator= (const Dog &copy)
+{
+	if (this != &copy)
+	{
+		derType = copy.derType;
+	}
+	return (*this);
+}
+
 void	Dog::makeSound() const
 {
 	std::cout << "Woof" << std::endl;

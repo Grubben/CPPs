@@ -7,10 +7,20 @@ Cat::Cat()
 	std::cout << "Cat " << derType;
 	std::cout << " created" << std::endl;
 }
+
 Cat::~Cat()
 {
 	std::cout << "Cat " << derType;
 	std::cout << " destroyed" << std::endl;
+}
+
+Cat	&Cat::operator= (const Cat &copy)
+{
+	if (this != &copy)
+	{
+		derType = copy.derType;
+	}
+	return (*this);
 }
 
 void	Cat::makeSound() const

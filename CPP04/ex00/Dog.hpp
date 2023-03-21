@@ -7,7 +7,10 @@ private:
 	std::string derType;
 public:
 	Dog();
+	Dog(const Dog &copy);
 	~Dog();
+
+	Dog	&operator= (const Dog &copy);
 
 	void makeSound() const;
 };

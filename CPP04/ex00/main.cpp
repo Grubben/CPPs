@@ -2,6 +2,9 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
 #include <iostream>
 #include <cmath>
 
@@ -16,7 +19,10 @@ int	main(void)
 	j->makeSound();
 	meta->makeSound();
 
-	delete meta;
-	delete i;
-	delete j;
+	const WrongAnimal* Wmeta = new WrongAnimal();
+	const WrongAnimal* wi = new WrongCat();
+	std::cout << wi->getType() << " " << std::endl;
+	wi->makeSound(); //will output the cat sound!
+	Wmeta->makeSound();
+
 }
