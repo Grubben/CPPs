@@ -9,12 +9,17 @@ private:
 	int					energy;
 	int					attackdmg;
 public:
+	ClapTrap();
 	ClapTrap(std::string newname);
+	ClapTrap(const ClapTrap &copy);
 	~ClapTrap();
 
-	std::string	getName();
-	int			getEnergy();
-	int			getAttackdmg();
+	ClapTrap	&operator= (const ClapTrap &copy);
+
+	std::string	getName() const;
+	int			getHealth() const;
+	int			getEnergy() const;
+	int			getAttackdmg() const;
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
