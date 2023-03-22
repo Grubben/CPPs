@@ -1,7 +1,7 @@
 #pragma once
 #include "Animal.hpp"
 
-class Cat : public Animal
+class Cat : virtual public Animal
 {
 private:
 	std::string derType;
