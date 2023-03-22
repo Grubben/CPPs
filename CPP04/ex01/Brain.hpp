@@ -9,7 +9,10 @@ private:
 	/* data */
 public:
 	Brain();
+	Brain(const Brain &copy);
 	~Brain();
+
+	Brain	&operator= (const Brain &copy);
 
 	std::string	ideas[100];
 };
