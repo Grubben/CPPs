@@ -1,11 +1,11 @@
 NAME		= megaphone
 
 ## COMPILATION
-CC			= c++
+# CC			= c++
 CXX			= c++
 # Compilation Flags
-CFLAGS		=-Wall -Wextra -Werror -g -std=c++98
-CXXFLAGS	=-Wall -Wextra -Werror -g -std=c++98
+# CFLAGS		=-Wall -Wextra -Werror -g -std=c++98
+CXXFLAGS	=-Wall -Wextra -Werror -g3 -std=c++98
 
 # Removal Flags. Not sure if necessary
 RM			= rm -rf
@@ -15,10 +15,10 @@ SRCS		= megaphone.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 $(NAME)		: $(OBJS)
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+			$(CXX) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o			: %.c
-			$(CC) $(CFLAGS) -c -o $@ $<
+# %.o			: %.c
+# 			$(CXX) $(CFLAGS) -c -o $@ $<
 
 all			: $(NAME)
 

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amc <amc@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: amaria-d <amaria-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:43:47 by amaria-d          #+#    #+#             */
-/*   Updated: 2023/02/09 15:29:10 by amc              ###   ########.fr       */
+/*   Updated: 2023/03/28 17:05:05 by amaria-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <cstdlib>
 
 PhoneBook::PhoneBook( void ) {
 	std::cout << "PhoneBook constructor called" << std::endl;
@@ -61,6 +62,7 @@ static std::string	getin(const std::string prompt)
 
 void	PhoneBook::show(void)
 {
+	int	n;
 	for (int i = 0; i < 9; i++)
 	{
 		if (storage[i].firstn == "")
@@ -71,5 +73,11 @@ void	PhoneBook::show(void)
 		showfmt(storage[i].nickn);
 		std::cout << std::endl;
 	}
-	storage[std::atoi(getin("Index of Entry to Display> ").c_str())].show();
+	n = std::atoi(getin("Index of Entry to Display> ").c_str());
+	while (n < 0 || n > 8)
+	{
+		std::cout << "Wrong entry number given. Try again" << std::endl;
+		n = std::atoi(getin("Index of Entry to Display> ").c_str());
+	}
+	storage[n].show();
 }
