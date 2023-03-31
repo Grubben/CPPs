@@ -25,23 +25,6 @@ Contact::~Contact( void ) {
     std::cout << "Contact destructor called" << std::endl;
 }
 
-static std::string	getin(const std::string prompt)
-{
-	std::string	input = "";
-
-	do {
-		std::cout << prompt;
-		std::getline(std::cin, input);
-		if (! std::cin)
-		{
-			input = "";	
-		}
-		std::cout << input << std::endl;
-	}
-	while (input == "");
-	return input;
-}
-
 void	Contact::create(void)
 {
 	this->firstn = getin("First name> ");
@@ -58,6 +41,23 @@ void	Contact::show(void)
 	std::cout << nickn << std::endl;
 	std::cout << pnum << std::endl;
 	std::cout << secret << std::endl;
+}
+
+std::string	getin(const std::string prompt)
+{
+	std::string	input = "";
+
+	do {
+		std::cout << prompt;
+		std::getline(std::cin, input);
+		if (! std::cin)
+		{
+			input = "";	
+		}
+		// std::cout << input << std::endl;
+	}
+	while (input == "");
+	return input;
 }
 
 // int main(void)

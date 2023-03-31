@@ -32,4 +32,5 @@ private:
 	std::string secret;
 };
 
+std::string	getin(const std::string prompt);
 #endif

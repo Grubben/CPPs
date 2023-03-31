@@ -16,6 +16,7 @@
 
 PhoneBook::PhoneBook( void ) {
 	std::cout << "PhoneBook constructor called" << std::endl;
+	index = 0;
 }
 
 PhoneBook::~PhoneBook( void ) {
@@ -24,8 +25,7 @@ PhoneBook::~PhoneBook( void ) {
 
 void	PhoneBook::addContact(void)
 {
-	static int index = 0;
-	if (index == 9)
+	if (index == 8)
 		index = 0;
 	//TODO: possible memory leak if there's something in there already
 	storage[index].create();
@@ -43,27 +43,27 @@ static void	showfmt(std::string nm)
 		std::cout << std::setw(10) << nm << "|";
 }
 
-static std::string	getin(const std::string prompt)
-{
-	std::string	input = "";
+// std::string	getin(const std::string prompt)
+// {
+// 	std::string	input = "";
 
-	do {
-		std::cout << prompt;
-		std::getline(std::cin, input);
-		if (! std::cin)
-		{
-			input = "";	
-		}
-		std::cout << input << std::endl;
-	}
-	while (input == "");
-	return input;
-}
+// 	do {
+// 		std::cout << prompt;
+// 		std::getline(std::cin, input);
+// 		if (! std::cin)
+// 		{
+// 			input = "";	
+// 		}
+// 		// std::cout << input << std::endl;
+// 	}
+// 	while (input == "");
+// 	return input;
+// }
 
 void	PhoneBook::show(void)
 {
 	int	n;
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		if (storage[i].firstn == "")
 			break;
@@ -74,10 +74,11 @@ void	PhoneBook::show(void)
 		std::cout << std::endl;
 	}
 	n = std::atoi(getin("Index of Entry to Display> ").c_str());
-	while (n < 0 || n > 8)
-	{
-		std::cout << "Wrong entry number given. Try again" << std::endl;
-		n = std::atoi(getin("Index of Entry to Display> ").c_str());
-	}
+	std::cout << "Displaying entry number " << n << std::endl;
+	// while (n < 0 || n > 8)
+	// {
+	// 	std::cout << "Wrong entry number given. Try again" << std::endl;
+		// n = std::atoi(getin("Index of Entry to Display> ").c_str());
+	// }
 	storage[n].show();
 }

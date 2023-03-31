@@ -5,6 +5,8 @@
 
 #include <iomanip>
 
+std::string	getin(const std::string prompt);
+
 int main(void)
 {
 	PhoneBook phonebook;
@@ -16,21 +18,21 @@ int main(void)
 		std::cout << "> ";
 		// input.clear();
 		std::getline(std::cin, input);
-		// if (input == "ADD" || input == "a")
-		if (input == "ADD")
+		if (input == "ADD" || input == "a")
+		// if (input == "ADD")
 		{
 			std::cout << "Adding!" << std::endl;
 			phonebook.addContact();
 			// input.clear();
 		}
-		// else if (input == "SEARCH" || input == "s")
-		else if (input == "SEARCH")
+		else if (input == "SEARCH" || input == "s")
+		// else if (input == "SEARCH")
 		{
 			std::cout << "Searching!" << std::endl;
             phonebook.show();
 		}
-		// else if (input == "EXIT" || input == "e")
-		else if (input == "EXIT")
+		else if (input == "EXIT" || input == "e")
+		// else if (input == "EXIT")
             break;
         // else
 		// 	break;
