@@ -8,10 +8,13 @@ Zombie	*newZombie(std::string name);
 int	main(void)
 {
 
-	randomChump("Jo");
+	Zombie *z = newZombie("Jo");
 	randomChump("May");
 
 
 	delete newZombie("Marvin");
 	delete newZombie("Medge");
+
+	z->announce();
+	delete z;
 }
