@@ -39,5 +39,9 @@ Harl::~Harl()
 
 void	Harl::complain(std::string level)
 {
-	funcs[std::atoi(level.c_str())]();
+	int	t;
+	
+	t = std::atoi(level.c_str());
+	if (t >=0 && t <=3)
+		funcs[t]();
 }

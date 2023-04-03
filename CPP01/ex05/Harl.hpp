@@ -6,13 +6,11 @@
 class Harl
 {
 private:
-	static void					debug(void);
-	static void					info(void);
-	static void					warning(void);
-	static void					error(void);
-	void	(*funcs[4])(void);//	funcs[4];
-	// infunc	funcs[4];
-
+	static void		debug(void);
+	static void		info(void);
+	static void		warning(void);
+	static void		error(void);
+	void			(*funcs[4])(void);
 
 public:
 	Harl(void);
