@@ -23,11 +23,10 @@ int	fileitreplace(std::ifstream &ifile, std::ofstream &ofile, const std::string 
 
 	while (getline(ifile, line))
 	{
-		std::cout << line << std::endl;
-		std::cout << rep(line, s1, s2) << std::endl;
+		// std::cout << line << std::endl;
+		// std::cout << rep(line, s1, s2) << std::endl;
 		ofile << rep(line, s1, s2) << std::endl;
 	}
-	(void)ofile;
 	return (1);
 }
 
@@ -42,6 +41,11 @@ int main(int argc, char *argv[])
 	std::ifstream	ifile(argv[1]);
 	std::ofstream	ofile;
 
+	if (! ifile.is_open())
+	{
+		std::cerr << "Invalid file given" << std::endl;
+		return (0);
+	}
 	std::string	tmp = argv[1];
 	tmp.append(".replace");
 	ofile.open(tmp.c_str(), std::ios::out | std::ios::trunc);
