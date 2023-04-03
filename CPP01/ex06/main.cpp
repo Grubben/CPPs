@@ -1,5 +1,15 @@
 #include "Harl.hpp"
 #include <iostream>
+#include <sstream>
+
+std::string	inToStr(int value)
+{
+	std::ostringstream ss;
+	ss << value;
+	return ss.str();
+	// return static_cast<std::ostringstream*>( &(std::ostringstream() << lvl) )->str();
+}
+
 int main(int argc, char *argv[])
 {
 	Harl	harl;
@@ -7,32 +17,40 @@ int main(int argc, char *argv[])
 	std::string	info = "INFO";
 	std::string	warning = "WARNING";
 	std::string	error = "ERROR";
+
 	int		lvl;
 
 	if (argc < 2)
 		return (0);
-	if (!strcmp(argv[1], "DEBUG"))
+
+	if (argv[1] == debug)
 		lvl = 0;
-	if (!strcmp(argv[1], "INFO"))
+	else if (argv[1] == info)
 		lvl = 1;
-	if (!strcmp(argv[1], "WARNING"))
+	else if (argv[1] == warning)
 		lvl = 2;
-	if (!strcmp(argv[1], "ERROR"))
+	else if (argv[1] == error)
 		lvl = 3;
+	else
+		lvl = -1;
 
 	switch (lvl)
 	{
-		case (0) :
-			harl.complain("0");
-			break;
-		default :
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	case 0:
+		harl.complain(inToStr(lvl));
+		lvl++;
+	case 1:
+		harl.complain(inToStr(lvl));
+		lvl++;
+	case 2:
+		harl.complain(inToStr(lvl));
+		lvl++;
+	case 3:
+		harl.complain(inToStr(lvl));
+		lvl++;
+		break;
+	default:
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 
-	// harl.complain("0");
-	// harl.complain("1");
-	// harl.complain("2");
-	// harl.complain("3");
-	(void)argc;
-	(void)argv;
 }
