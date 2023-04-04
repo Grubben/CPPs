@@ -59,7 +59,7 @@ Fixed	Fixed::operator*(const Fixed &fixed)
 
 Fixed	Fixed::operator/(const Fixed &fixed)
 {
-	Fixed	tmp = num / fixed.num;
+	Fixed	tmp = this->toFloat() / fixed.toFloat();
 	return tmp;
 }
 
@@ -93,32 +93,32 @@ Fixed	Fixed::operator++(int)
 
 bool	Fixed::operator>(const Fixed fixed)
 {
-	return (this->toFloat() > fixed.toFloat());
+	return (this->num > fixed.num);
 }
 
 bool	Fixed::operator>=(const Fixed fixed)
 {
-	return (this->toFloat() >= fixed.toFloat());
+	return (this->num >= fixed.num);
 }
 
 bool	Fixed::operator<(const Fixed fixed)
 {
-	return (this->toFloat() < fixed.toFloat());
+	return (this->num < fixed.num);
 }
 
 bool	Fixed::operator<=(const Fixed fixed)
 {
-	return (this->toFloat() <= fixed.toFloat());
+	return (this->num <= fixed.num);
 }
 
 bool	Fixed::operator==(const Fixed fixed)
 {
-	return (this->toFloat() == fixed.toFloat());
+	return (this->num == fixed.num);
 }
 
 bool	Fixed::operator!=(const Fixed fixed)
 {
-	return (this->toFloat() != fixed.toFloat());
+	return (this->num != fixed.num);
 }
 
 
