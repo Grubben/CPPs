@@ -1,6 +1,7 @@
 #include "Fixed.hpp"
 #include <iostream>
 #include <cmath>
+
 Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -52,13 +53,13 @@ Fixed	Fixed::operator-(const Fixed &fixed)
 
 Fixed	Fixed::operator*(const Fixed &fixed)
 {
-	Fixed	tmp = num * fixed.num;
+	Fixed	tmp = toFloat() * fixed.toFloat();
 	return tmp;
 }
 
 Fixed	Fixed::operator/(const Fixed &fixed)
 {
-	Fixed	tmp = num / fixed.num;
+	Fixed	tmp = this->toFloat() / fixed.toFloat();
 	return tmp;
 }
 
@@ -92,32 +93,32 @@ Fixed	Fixed::operator++(int)
 
 bool	Fixed::operator>(const Fixed fixed)
 {
-	return (this->toFloat() > fixed.toFloat());
+	return (this->num > fixed.num);
 }
 
 bool	Fixed::operator>=(const Fixed fixed)
 {
-	return (this->toFloat() >= fixed.toFloat());
+	return (this->num >= fixed.num);
 }
 
 bool	Fixed::operator<(const Fixed fixed)
 {
-	return (this->toFloat() < fixed.toFloat());
+	return (this->num < fixed.num);
 }
 
 bool	Fixed::operator<=(const Fixed fixed)
 {
-	return (this->toFloat() <= fixed.toFloat());
+	return (this->num <= fixed.num);
 }
 
 bool	Fixed::operator==(const Fixed fixed)
 {
-	return (this->toFloat() == fixed.toFloat());
+	return (this->num == fixed.num);
 }
 
 bool	Fixed::operator!=(const Fixed fixed)
 {
-	return (this->toFloat() != fixed.toFloat());
+	return (this->num != fixed.num);
 }
 
 
@@ -152,10 +153,12 @@ Fixed&	Fixed::min(Fixed &f1, Fixed &f2)
 {
 	return (f1 <= f2) ? f1 : f2;
 }
+
 const Fixed&	Fixed::min(const Fixed &f1, const Fixed &f2)
 {
 	return ((Fixed &)f1 <= f2) ? f1 : f2;
 }
+
 Fixed&	Fixed::max(Fixed &f1, Fixed &f2)
 {
 	return (f1 >= f2) ? f1 : f2;
