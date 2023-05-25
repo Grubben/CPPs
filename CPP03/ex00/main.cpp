@@ -5,7 +5,7 @@
 int	main(void)
 {
 	ClapTrap ct("scrawny kid");
-	// ClapTrap ct;
+	ClapTrap cltr(ct);
 	ct.attack("mean bully");
 	ct.takeDamage(5);
 	ct.beRepaired(15);

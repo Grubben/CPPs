@@ -19,10 +19,11 @@ public:
 
 	ClapTrap	&operator= (const ClapTrap &copy);
 
-	std::string	getName() const;
-	int			getHealth() const;
-	int			getEnergy() const;
-	int			getAttackdmg() const;
+	// Should return const references
+	const std::string	&getName() const;
+	const int			&getHealth() const;
+	const int			&getEnergy() const;
+	const int			&getAttackdmg() const;
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
