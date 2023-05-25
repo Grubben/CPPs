@@ -25,7 +25,7 @@ Point::~Point()
 
 Point&	Point::operator=(const Point& point)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Point:Copy assignment operator called" << std::endl;
 	std::cout << "What should I do??" << std::endl;
 	// x = point.x;
 	// y = point.y;
