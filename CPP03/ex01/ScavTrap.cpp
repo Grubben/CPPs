@@ -44,19 +44,19 @@ void	ScavTrap::attack(const std::string& target)
 	std::cout << " points of damage" << std::endl;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " is attacked by " << amount;
-	std::cout << " points of damage" << std::endl;
-}
+// void	ScavTrap::takeDamage(unsigned int amount)
+// {
+// 	std::cout << "ScavTrap " << getName();
+// 	std::cout << " is attacked by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
 
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " is reapaired by " << amount;
-	std::cout << " points of damage" << std::endl;
-}
+// void	ScavTrap::beRepaired(unsigned int amount)
+// {
+// 	std::cout << "ScavTrap " << getName();
+// 	std::cout << " is reapaired by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
 
 void	ScavTrap::guardGate()
 {
