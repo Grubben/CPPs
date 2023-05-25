@@ -1,7 +1,7 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap()
-	: ClapTrap()
+	: ClapTrap("UnNamed", 100, 100, 30)
 {
 	std::cout << "FragTrap " << getName();
 	std::cout << " constructor called" << std::endl;
