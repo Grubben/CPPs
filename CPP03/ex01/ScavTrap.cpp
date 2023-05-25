@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-	: ClapTrap()
+	: ClapTrap("UnNamed", 100, 50, 20)
 {
 	std::cout << "ScavTrap " << getName();
 	std::cout << " constructor called" << std::endl;
