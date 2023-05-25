@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
 #include <iostream>
+
 class ClapTrap
 {
 private:
-	const std::string	name;
+	std::string	name;
 	int					hitpoints;
 	int					energy;
 	int					attackdmg;
+
 public:
 	ClapTrap();
 	ClapTrap(std::string newname);

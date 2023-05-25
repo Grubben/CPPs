@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: name("")
+	: name("UnNamed")
 	, hitpoints(10)
 	, energy(10)
 	, attackdmg(0)
@@ -47,6 +47,8 @@ ClapTrap::~ClapTrap()
 
 ClapTrap	&ClapTrap::operator= (const ClapTrap &copy)
 {
+	std::cout << "ClapTrap " << name;
+	std::cout << " assignment operator called" << std::endl;
 	if (this == &copy)
 		return (*this);
 	// name = copy.getName();
