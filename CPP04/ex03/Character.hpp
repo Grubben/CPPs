@@ -5,6 +5,7 @@
 #include <string>
 #include "ICharacter.hpp"
 
+#include "AMateria.hpp"
 
 class Character : public ICharacter
 {
@@ -14,6 +15,7 @@ protected:
 public:
 
 	Character(void);
+	Character(std::string const& name);
 	Character(const Character &copy);
 	~Character(void);
 

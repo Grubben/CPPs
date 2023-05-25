@@ -4,7 +4,7 @@ NAME		= amateria
 # CC			= c
 CXX			= c++
 # Compilation Flags
-# CFLAGS		=-g3 -std=c++98 -Wall -Wextra -Werror
+CFLAGS		=-g3 -std=c++98 -Wall -Wextra# -Werror
 # CXXFLAGS	=-g3 -std=c++98 -Wall -Wextra -Werror
 
 # Removal Flags. Not sure if necessary

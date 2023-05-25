@@ -25,15 +25,16 @@ AMateria::~AMateria(void)
 AMateria	&AMateria::operator = (const AMateria &copy)
 {
     std::cout << "Assignation operator called" << std::endl;
+    type = copy.type;
     return (*this);
 }
 
 std::string const	&AMateria::getType() const
 {
-    return type;
+    return (type);
 }
 
-// void	AMateria::use(ICharacter& target)
-// {
-// 	std::cout << type << "targets " << target.getName();
-// }
+void	AMateria::use(ICharacter& target)
+{
+	std::cout << type << "targets " << target.getName();
+}

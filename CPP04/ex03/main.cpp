@@ -1,5 +1,7 @@
-// #include "AMateria.hpp"
-// #include "ICharacter.hpp"
+#include "IceMateria.hpp"
+#include "CureMateria.hpp"
+
+#include "Character.hpp"
 // #include "IMateriaSource.hpp"
 
 int	main(void)
@@ -7,7 +9,7 @@ int	main(void)
 	// IMateriaSource* src = new MateriaSource();
 	// src->learnMateria(new Ice());
 	// src->learnMateria(new Cure());
-	// ICharacter* me = new Character("me");
+	ICharacter* me = new Character("me");
 	// AMateria* tmp;
 	// tmp = src->createMateria("ice");
 	// me->equip(tmp);
@@ -19,6 +21,13 @@ int	main(void)
 	// delete bob;
 	// delete me;
 	// delete src;
+
+	IceMateria	icemat;
+	me->equip(&icemat);
+	me->equip(&icemat);
+	me->equip(&icemat);
+	me->equip(&icemat);
+	me->equip(&icemat);
 
 	// return 0;
 }
