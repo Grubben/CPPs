@@ -1,35 +1,35 @@
-#include "IceMateria.hpp"
+#include "Ice.hpp"
 
-IceMateria::IceMateria(void)
+Ice::Ice(void)
 	: AMateria("ice")
 {
 	std::cout << "Constructor called" << std::endl;
 }
 
-IceMateria::~IceMateria(void)
+Ice::~Ice(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-IceMateria::IceMateria(IceMateria const& copy)
+Ice::Ice(Ice const& copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
-IceMateria	&IceMateria::operator = (const IceMateria &copy)
+Ice	&Ice::operator = (const Ice &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	type = copy.type;
 	return (*this);
 }
 
-AMateria*	IceMateria::clone() const
+AMateria*	Ice::clone() const
 {
-	return (new IceMateria);
+	return (new Ice);
 }
 
-void	IceMateria::use(ICharacter& target)
+void	Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() 	<< std::endl;
 }

@@ -1,35 +1,35 @@
-#include "CureMateria.hpp"
+#include "Cure.hpp"
 
-CureMateria::CureMateria(void)
+Cure::Cure(void)
 	: AMateria("cure")
 {
 	std::cout << "Constructor called" << std::endl;
 }
 
-CureMateria::~CureMateria(void)
+Cure::~Cure(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-CureMateria::CureMateria(CureMateria const& copy)
+Cure::Cure(Cure const& copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
-CureMateria	&CureMateria::operator = (const CureMateria &copy)
+Cure	&Cure::operator = (const Cure &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	type = copy.type;
 	return (*this);
 }
 
-AMateria*	CureMateria::clone() const
+AMateria*	Cure::clone() const
 {
-	return (new CureMateria);
+	return (new Cure);
 }
 
-void	CureMateria::use(ICharacter& target)
+void	Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds" << std::endl;
 }
