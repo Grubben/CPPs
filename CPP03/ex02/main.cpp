@@ -11,6 +11,7 @@ int	main(void)
 	st.beRepaired(32);
 	st.guardGate();
 
+	// FragTrap nn;
 	FragTrap ft("buff kid");
 	ft.attack("school bully");
 	ft.takeDamage(43);

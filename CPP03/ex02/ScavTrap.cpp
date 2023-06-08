@@ -7,19 +7,19 @@ ScavTrap::ScavTrap()
 	std::cout << " constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const std::string& newname)
+	: ClapTrap(newname, 100, 50, 20)
+{
+	std::cout << "ScavTrap " << getName();
+	std::cout << " constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(const ScavTrap &copy)
 	: ClapTrap(copy.getName(), 100, 50, 20)
 {
 	std::cout << "ScavTrap " << getName();
 	std::cout << " copy constructor called" << std::endl;
 
-}
-
-ScavTrap::ScavTrap(const std::string& newname)
-	: ClapTrap(newname, 100, 50, 20)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

@@ -5,10 +5,10 @@ class ScavTrap : public ClapTrap
 {
 private:
 	/* data */
-public:
 	ScavTrap();
-	ScavTrap(const ScavTrap &copy);
+public:
 	ScavTrap(const std::string& newname);
+	ScavTrap(const ScavTrap &copy);
 	~ScavTrap();
 
 	ScavTrap	&operator= (const ScavTrap &copy);

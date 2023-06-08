@@ -10,14 +10,6 @@ ClapTrap::ClapTrap()
 	std::cout << " constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
-	: name(copy.name)
-{
-	std::cout << "ClapTrap " << name;
-	std::cout << " constructor called" << std::endl;
-	*this = copy;
-}
-
 ClapTrap::ClapTrap(std::string newname)
 	: name(newname)
 	, hitpoints(10)
@@ -36,6 +28,14 @@ ClapTrap::ClapTrap(const std::string newname, int hp, int en, int ad)
 {
 	std::cout << "ClapTrap " << name;
 	std::cout << " constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy)
+	: name(copy.name)
+{
+	std::cout << "ClapTrap " << name;
+	std::cout << " constructor called" << std::endl;
+	*this = copy;
 }
 
 

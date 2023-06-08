@@ -10,8 +10,8 @@ private:
 	int					energy;
 	int					attackdmg;
 
-public:
 	ClapTrap();
+public:
 	ClapTrap(std::string newname);
 	ClapTrap(std::string newname, int hp, int en, int ad);
 	ClapTrap(const ClapTrap &copy);
@@ -19,7 +19,6 @@ public:
 
 	ClapTrap	&operator= (const ClapTrap &copy);
 
-	// Should return const references
 	const std::string	&getName() const;
 	const int			&getHealth() const;
 	const int			&getEnergy() const;
