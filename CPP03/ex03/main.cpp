@@ -1,19 +1,17 @@
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
 #include <iostream>
 #include <cmath>
 
+#include "DiamondTrap.hpp"
+
 int	main(void)
 {
-	ScavTrap st("buff kid");
-	st.attack("school bully");
-	st.takeDamage(43);
-	st.beRepaired(32);
-	st.guardGate();
+	DiamondTrap	dt("Shiny");
+	dt.beRepaired(40);
 
-	FragTrap ft("buff kid");
-	ft.attack("school bully");
-	ft.takeDamage(43);
-	ft.beRepaired(32);
-	ft.highFivesGuys();
+	dt.guardGate();
+	dt.highFivesGuys();
+
+	dt.attack("Enemy");
+	
+	dt.whoAmI();
 }

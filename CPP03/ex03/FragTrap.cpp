@@ -1,7 +1,14 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap()
-	: ClapTrap()
+	: ClapTrap("UnNamed", 100, 100, 30)
+{
+	std::cout << "FragTrap " << getName();
+	std::cout << " constructor called" << std::endl;
+}
+
+FragTrap::FragTrap(const std::string& newname)
+	: ClapTrap(newname, 100, 100, 30)
 {
 	std::cout << "FragTrap " << getName();
 	std::cout << " constructor called" << std::endl;
@@ -14,12 +21,6 @@ FragTrap::FragTrap(const FragTrap &copy)
 	std::cout << " copy constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& newname)
-	: ClapTrap(newname, 100, 100, 30)
-{
-	std::cout << "FragTrap " << getName();
-	std::cout << " constructor called" << std::endl;
-}
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap " << getName();
@@ -34,11 +35,6 @@ FragTrap	&FragTrap::operator= (const FragTrap &copy)
 	return (*this);
 }
 
-void	FragTrap::highFivesGuys(void)
-{
-	std::cout << "High Five me broh!!" << std::endl;
-}
-
 void	FragTrap::attack(const std::string& target)
 {
 	std::cout << "FragTrap " << getName();
@@ -47,16 +43,21 @@ void	FragTrap::attack(const std::string& target)
 	std::cout << " points of damage" << std::endl;
 }
 
-void	FragTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "FragTrap " << getName();
-	std::cout << " is attacked by " << amount;
-	std::cout << " points of damage" << std::endl;
-}
+// void	FragTrap::takeDamage(unsigned int amount)
+// {
+// 	std::cout << "FragTrap " << getName();
+// 	std::cout << " is attacked by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
 
-void	FragTrap::beRepaired(unsigned int amount)
+// void	FragTrap::beRepaired(unsigned int amount)
+// {
+// 	std::cout << "FragTrap " << getName();
+// 	std::cout << " is reapaired by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
+
+void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << getName();
-	std::cout << " is reapaired by " << amount;
-	std::cout << " points of damage" << std::endl;
+	std::cout << "High Five me broh!!" << std::endl;
 }

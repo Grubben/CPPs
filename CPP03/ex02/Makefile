@@ -5,7 +5,7 @@ NAME		= fragtrap
 CXX			= c++
 # Compilation Flags
 CFLAGS		=-g -std=c++98 -Wall -Wextra -Werror
-CXXFLAGS	=-g -std=c++98 -Wall -Wextra -Werror
+# CXXFLAGS	=-g -std=c++w98 -Wall -Wextra -Werror
 
 # Removal Flags. Not sure if necessary
 RM			= rm -rf

@@ -5,7 +5,7 @@ NAME		= diamondtrap
 CXX			= c++
 # Compilation Flags
 CFLAGS		=-g -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
-CXXFLAGS	=-g -std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+# CXXFLAGS	=-g -std=c++98 -Wall -Wextra -Werror
 
 # Removal Flags. Not sure if necessary
 RM			= rm -rf

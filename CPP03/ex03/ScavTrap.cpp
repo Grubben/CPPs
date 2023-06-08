@@ -1,7 +1,14 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-	: ClapTrap()
+	: ClapTrap("UnNamed", 100, 50, 20)
+{
+	std::cout << "ScavTrap " << getName();
+	std::cout << " constructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const std::string& newname)
+	: ClapTrap(newname, 100, 50, 20)
 {
 	std::cout << "ScavTrap " << getName();
 	std::cout << " constructor called" << std::endl;
@@ -12,13 +19,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
 {
 	std::cout << "ScavTrap " << getName();
 	std::cout << " copy constructor called" << std::endl;
-}
 
-ScavTrap::ScavTrap(const std::string& newname)
-	: ClapTrap(newname, 100, 50, 20)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -43,19 +44,19 @@ void	ScavTrap::attack(const std::string& target)
 	std::cout << " points of damage" << std::endl;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " is attacked by " << amount;
-	std::cout << " points of damage" << std::endl;
-}
+// void	ScavTrap::takeDamage(unsigned int amount)
+// {
+// 	std::cout << "ScavTrap " << getName();
+// 	std::cout << " is attacked by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
 
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	std::cout << "ScavTrap " << getName();
-	std::cout << " is reapaired by " << amount;
-	std::cout << " points of damage" << std::endl;
-}
+// void	ScavTrap::beRepaired(unsigned int amount)
+// {
+// 	std::cout << "ScavTrap " << getName();
+// 	std::cout << " is reapaired by " << amount;
+// 	std::cout << " points of damage" << std::endl;
+// }
 
 void	ScavTrap::guardGate()
 {
