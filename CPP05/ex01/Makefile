@@ -1,4 +1,4 @@
-NAME		= bureaucrat
+NAME		= form
 
 ## COMPILATION
 # CC			= /nix/store/9a6xmi09ngdcb5wi9sv4qyxqa894s8md-clang-wrapper-11.1.0/bin/clang++

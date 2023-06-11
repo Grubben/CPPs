@@ -18,8 +18,16 @@ Form::Form(const Form& copy)
 
 Form&	Form::operator= (const Form& copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Assignment operator called" << std::endl;
 	return (*this);
+}
+
+void	Form::beSigned(const Bureaucrat& signer)
+{
+	if (signer.getGrade() <= this->signReq)
+		isSigned = 1;
+	else
+		throw Form::GradeTooLowException();
 }
 
 const	std::string&	Form::getName() const
@@ -38,4 +46,13 @@ const	int&			Form::getSignReq() const
 const	int&			Form::getExecReq() const
 {
 	return this->execReq;
+}
+
+std::ostream& operator<<(std::ostream &os, const Form& obj)
+{
+	os << obj.getName() <<  std::endl;
+	os << "is signed: " << obj.getIsSigned() << std::endl;
+	os << "Sign requirement " << obj.getSignReq() << std::endl;
+	os << "Execution requirement " << obj.getSignReq() << std::endl;
+	return os;
 }
