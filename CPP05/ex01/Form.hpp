@@ -1,19 +1,20 @@
 #pragma once
 #include <iostream>
 
-#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
 private:
-	std::string name;
-	bool	isSigned;
-	int			signReq;
-	int			execReq;	
+	const std::string	name;
+	bool				isSigned;
+	int					signReq;
+	int					execReq;	
 public:
-	~Form(void);
 	Form(void);
 	Form(const Form& copy);
+	Form(const std::string name, bool isSigned, int execReq, int signReq);
+	~Form(void);
 
 	Form&	operator= (const Form& copy);
 

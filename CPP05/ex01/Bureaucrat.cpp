@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::~Bureaucrat(void)
 {
@@ -48,6 +49,19 @@ Bureaucrat&			Bureaucrat::operator++()
 		throw GradeTooHighException();
 	this->grade--;
 	return (*this);
+}
+
+void	Bureaucrat::signForm(Form& tosign) const
+{
+	try
+	{
+		tosign.beSigned(*this);
+		std::cout << getName() << " signed " << tosign.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << getName() << " couldn't sign " << tosign.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 const std::string&	Bureaucrat::getName() const

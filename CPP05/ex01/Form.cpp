@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::~Form(void)
 {
@@ -15,10 +16,19 @@ Form::Form(const Form& copy)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
-
+Form::Form(const std::string name, bool isSigned, int signReq, int execReq)
+	: name(name)
+	, isSigned(isSigned)
+	, signReq(signReq)
+	, execReq(execReq)
+{
+	std::cout << "Constructor called" << std::endl;
+}
 Form&	Form::operator= (const Form& copy)
 {
 	std::cout << "Assignment operator called" << std::endl;
+	if (this != &copy)
+	{}
 	return (*this);
 }
 

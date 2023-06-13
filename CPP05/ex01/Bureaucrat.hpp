@@ -2,6 +2,8 @@
 #include <iostream>
 #include <exception>
 
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -19,8 +21,8 @@ public:
 	Bureaucrat&			operator++();
 	// Bureaucrat			operator++(int);
 
-	// std::ostream& operator<<(std::ostream &os, const Bureaucrat& obj);
 
+	void	signForm(Form& tosign) const;
 
 	const std::string&	getName() const;
 	const int&			getGrade() const;
