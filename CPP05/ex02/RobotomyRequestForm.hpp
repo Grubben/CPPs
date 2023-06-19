@@ -7,8 +7,8 @@ class RobotomyRequestForm : public AForm
 private:
 		/*private members*/
 	RobotomyRequestForm(void);
-public:
 	RobotomyRequestForm(const RobotomyRequestForm& copy);
+public:
 	RobotomyRequestForm(const std::string& target);
 	~RobotomyRequestForm(void);
 
