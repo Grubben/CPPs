@@ -12,5 +12,5 @@ public:
 
 	ScalarConverter&	operator= (const ScalarConverter& copy);
 
-	static char	convert(const std::string& literal);
+	static void	convert(const std::string& literal);
 };

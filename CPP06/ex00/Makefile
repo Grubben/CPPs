@@ -1,11 +1,9 @@
 NAME		= converter
 
 ## COMPILATION
-# CC			= /nix/store/9a6xmi09ngdcb5wi9sv4qyxqa894s8md-clang-wrapper-11.1.0/bin/clang++
 CXX			= clang++
 # Compilation Flags
-CFLAGS		=-g -std=c++98 -Wall -Wextra -Werror
-# CXXFLAGS	=-g -std=c++98 -Wall -Wextra -Werror
+CFLAGS		=-g -std=c++98 -Wall -Wextra #-Werror
 
 # Removal Flags. Not sure if necessary
 RM			= rm -rf
