@@ -33,17 +33,36 @@ bool	isPseudoLit(const std::string& literal)
 	);
 }
 
-void	representChar(const int num)
+void	representChar(const std::string& literal)
 {
 	std::cout << "Char: ";
-	if (num > std::numeric_limits<unsigned char>::max())
+	// Represent char literals
+	try
+	{
+		double	num = std::stod(literal);
+		std::cout << num << std::endl;
+		// if (num > std::numeric_limits<unsigned char>::max())
+		// 	std::cout << "impossible";
+		// else if (num < std::numeric_limits<unsigned char>::lowest())
+		// 	std::cout << "impossible";
+		if (std::isprint(num))
+		{
+			std::cout << "'" << static_cast<unsigned char>(num) << "'";
+		}
+		else
+			std::cout << "Non displayable";
+		return;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 		std::cout << "impossible";
-	else if (num < std::numeric_limits<unsigned char>::lowest())
+	}
+	if (literal.length() != 1)
 		std::cout << "impossible";
-	else if (std::isprint(num))
-		std::cout << static_cast<unsigned char>(num);
-	else
-		std::cout << "Non displayable";
+	else if (literal >= "a" || literal <= "Z")
+		std::cout << literal;
+
 	std::cout << std::endl;
 }
 
@@ -54,7 +73,7 @@ void	representInt(const std::string& literal)
 	if (isPseudoLit(literal))
 		std::cout << "impossible";
 	else
-		std::cout << std::atoi(literal.c_str());
+		std::cout << static_cast<int>(std::stod(literal));
 	std::cout << std::endl;
 
 }
@@ -63,10 +82,11 @@ void	representFloat(const std::string& literal)
 {
 	std::cout << "Float: ";
 
-	if (isPseudoLit(literal))
-		std::cout << "impossible";
-	else
-		std::cout << std::atof(literal.c_str()) << "f";
+	// if (isPseudoLit(literal))
+	// 	std::cout << "impossible";
+	// else
+		float num = std::stof(literal);
+		std::cout << num << "f";
 	std::cout << std::endl;
 	
 }
@@ -76,19 +96,21 @@ void	representDouble(const std::string& literal)
 	std::cout << "Double: ";
 
 	if (isPseudoLit(literal))
-		std::cout << "impossible";
+		std::cout << literal;
 	else
-		std::cout << std::atol(literal.c_str());
+	{
+		double num = std::stod(literal);
+		std::cout << num;
+
+	}
 	std::cout << std::endl;
 	
 }
 
 void	ScalarConverter::convert(const std::string& literal)
 {
-	int	num = std::atoi(literal.c_str());
-	std::cout << num << std::endl;
 	
-	representChar(num);
+	representChar(literal);
 	
 	representInt(literal);
 
