@@ -1,5 +1,5 @@
 #include "ScalarConverter.hpp"
-#include <limits>
+#include <cmath>
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -36,33 +36,25 @@ bool	isPseudoLit(const std::string& literal)
 void	representChar(const std::string& literal)
 {
 	std::cout << "Char: ";
-	// Represent char literals
 	try
 	{
-		double	num = std::stod(literal);
-		std::cout << num << std::endl;
-		// if (num > std::numeric_limits<unsigned char>::max())
-		// 	std::cout << "impossible";
-		// else if (num < std::numeric_limits<unsigned char>::lowest())
-		// 	std::cout << "impossible";
+		unsigned char	num = static_cast<unsigned char>(std::stod(literal));
 		if (std::isprint(num))
 		{
-			std::cout << "'" << static_cast<unsigned char>(num) << "'";
+			std::cout << "'" << (num) << "'";
 		}
 		else
 			std::cout << "Non displayable";
-		return;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		// std::cerr << e.what() << '\n';
 		std::cout << "impossible";
+		if (literal.length() != 1)
+			std::cout << "impossible";
+		else if (literal >= "a" || literal <= "Z")
+			std::cout << literal;
 	}
-	if (literal.length() != 1)
-		std::cout << "impossible";
-	else if (literal >= "a" || literal <= "Z")
-		std::cout << literal;
-
 	std::cout << std::endl;
 }
 
@@ -70,52 +62,59 @@ void	representInt(const std::string& literal)
 {
 	std::cout << "Int: ";
 
-	if (isPseudoLit(literal))
-		std::cout << "impossible";
-	else
+	try
+	{
+		if (isPseudoLit(literal))
+			throw std::exception();
 		std::cout << static_cast<int>(std::stod(literal));
+	}
+	catch(const std::exception& e)
+	{
+		// std::cerr << e.what() << '\n';
+		std::cout << "impossible";
+	}
 	std::cout << std::endl;
-
 }
 
 void	representFloat(const std::string& literal)
 {
 	std::cout << "Float: ";
 
-	// if (isPseudoLit(literal))
-	// 	std::cout << "impossible";
-	// else
-		float num = std::stof(literal);
-		std::cout << num << "f";
+	try
+	{
+		std::cout << std::stof(literal) << "f";
+	}
+	catch(const std::exception& e)
+	{
+		// std::cerr << e.what() << '\n';
+		std::cout << "impossible";
+	}
 	std::cout << std::endl;
-	
 }
 
 void	representDouble(const std::string& literal)
 {
 	std::cout << "Double: ";
 
-	if (isPseudoLit(literal))
-		std::cout << literal;
-	else
+	try
 	{
 		double num = std::stod(literal);
 		std::cout << num;
-
+		if (num == std::floor(num))
+			std::cout << ".0";
+	}
+	catch(const std::exception& e)
+	{
+		// std::cerr << e.what() << '\n';
+		std::cout << "impossible";
 	}
 	std::cout << std::endl;
-	
 }
 
 void	ScalarConverter::convert(const std::string& literal)
 {
-	
 	representChar(literal);
-	
 	representInt(literal);
-
 	representFloat(literal);
-
 	representDouble(literal);
-
 }
