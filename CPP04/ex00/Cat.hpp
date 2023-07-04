@@ -8,7 +8,7 @@ private:
 public:
 	Cat();
 	Cat(const Cat &copy);
-	~Cat();
+	virtual ~Cat();
 
 	Cat	&operator= (const Cat &copy);
 

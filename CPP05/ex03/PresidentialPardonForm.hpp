@@ -10,7 +10,7 @@ private:
 	PresidentialPardonForm(const PresidentialPardonForm& copy);
 public:
 	PresidentialPardonForm(const std::string& target);
-	~PresidentialPardonForm(void);
+	virtual ~PresidentialPardonForm(void);
 
 	PresidentialPardonForm&	operator= (const PresidentialPardonForm& copy);
 

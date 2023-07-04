@@ -10,7 +10,7 @@ private:
 public:
 	Brain();
 	Brain(const Brain &copy);
-	~Brain();
+	virtual ~Brain();
 
 	Brain	&operator= (const Brain &copy);
 

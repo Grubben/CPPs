@@ -12,7 +12,7 @@ private:
 	Intern(const Intern& copy);
 public:
 	Intern(void);
-	~Intern(void);
+	virtual ~Intern(void);
 
 	Intern&	operator= (const Intern& copy);
 

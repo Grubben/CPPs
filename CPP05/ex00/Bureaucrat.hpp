@@ -10,7 +10,7 @@ private:
 	Bureaucrat(void);
 	Bureaucrat&			operator= (const Bureaucrat& copy);
 public:
-	~Bureaucrat(void);
+	virtual ~Bureaucrat(void);
 	Bureaucrat(const Bureaucrat& copy);
 	Bureaucrat(const std::string buname, int bugrade);
 

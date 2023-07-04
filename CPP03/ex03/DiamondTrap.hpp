@@ -13,7 +13,7 @@ public:
 	DiamondTrap(void);
 	DiamondTrap(const std::string& newname);
 	DiamondTrap(const DiamondTrap& copy);
-	~DiamondTrap(void);
+	virtual ~DiamondTrap(void);
 
 	DiamondTrap&	operator= (const DiamondTrap& copy);
 

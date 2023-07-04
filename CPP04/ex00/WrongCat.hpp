@@ -8,7 +8,7 @@ private:
 public:
 	WrongCat();
 	WrongCat(const WrongCat &copy);
-	~WrongCat();
+	virtual ~WrongCat();
 
 	WrongCat	&operator= (const WrongCat &copy);
 

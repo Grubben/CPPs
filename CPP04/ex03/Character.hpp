@@ -17,7 +17,7 @@ public:
 	Character(void);
 	Character(std::string const& name);
 	Character(const Character &copy);
-	~Character(void);
+	virtual ~Character(void);
 
 	Character	&operator = (const Character &copy);
 

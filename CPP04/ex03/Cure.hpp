@@ -12,7 +12,7 @@ public:
 	Cure(void);
 	Cure(Cure const& copy);
 	Cure(std::string const& type);
-	~Cure(void);
+	virtual ~Cure(void);
 
 
 	Cure	&operator = (const Cure &copy);

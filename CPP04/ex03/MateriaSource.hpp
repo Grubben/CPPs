@@ -20,7 +20,7 @@ private:
 public:
 	MateriaSource(void);
 	MateriaSource(const MateriaSource& copy);
-	~MateriaSource(void);
+	virtual ~MateriaSource(void);
 
 	MateriaSource&	operator = (const MateriaSource& copy);
 

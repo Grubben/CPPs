@@ -12,7 +12,7 @@ public:
 	Ice(void);
 	Ice(Ice const& copy);
 	Ice(std::string const& type);
-	~Ice(void);
+	virtual ~Ice(void);
 
 
 	Ice	&operator = (const Ice &copy);

@@ -15,7 +15,7 @@ public:
 	ClapTrap(std::string newname);
 	ClapTrap(std::string newname, int hp, int en, int ad);
 	ClapTrap(const ClapTrap &copy);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	ClapTrap	&operator= (const ClapTrap &copy);
 

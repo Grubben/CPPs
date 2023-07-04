@@ -10,7 +10,7 @@ private:
 	ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 public:
 	ShrubberyCreationForm(const std::string& target);
-	~ShrubberyCreationForm(void);
+	virtual ~ShrubberyCreationForm(void);
 
 	ShrubberyCreationForm&	operator= (const ShrubberyCreationForm& copy);
 

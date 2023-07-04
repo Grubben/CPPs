@@ -10,7 +10,7 @@ private:
 	RobotomyRequestForm(const RobotomyRequestForm& copy);
 public:
 	RobotomyRequestForm(const std::string& target);
-	~RobotomyRequestForm(void);
+	virtual ~RobotomyRequestForm(void);
 
 	RobotomyRequestForm&	operator= (const RobotomyRequestForm& copy);
 

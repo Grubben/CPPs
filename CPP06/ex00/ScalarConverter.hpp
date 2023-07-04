@@ -8,7 +8,7 @@ private:
 public:
 	ScalarConverter(void);
 	ScalarConverter(const ScalarConverter& copy);
-	~ScalarConverter(void);
+	virtual ~ScalarConverter(void);
 
 	ScalarConverter&	operator= (const ScalarConverter& copy);
 

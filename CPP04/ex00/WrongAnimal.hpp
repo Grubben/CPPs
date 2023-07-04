@@ -10,7 +10,7 @@ public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal& animal);
 	WrongAnimal(std::string newType);
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
 	WrongAnimal	&operator= (const WrongAnimal &copy);
 

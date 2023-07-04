@@ -14,7 +14,7 @@ public:
 	Form(void);
 	Form(const Form& copy);
 	Form(const std::string name, bool isSigned, int execReq, int signReq);
-	~Form(void);
+	virtual ~Form(void);
 
 	Form&	operator= (const Form& copy);
 

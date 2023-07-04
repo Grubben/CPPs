@@ -9,7 +9,7 @@ private:
 public:
 	Serializer(void);
 	Serializer(const Serializer& copy);
-	~Serializer(void);
+	virtual ~Serializer(void);
 
 	Serializer&	operator= (const Serializer& copy);
 
