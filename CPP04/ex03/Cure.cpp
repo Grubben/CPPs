@@ -3,12 +3,12 @@
 Cure::Cure(void)
 	: AMateria("cure")
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Cure Constructor called" << std::endl;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Cure Destructor called" << std::endl;
 }
 
 Cure::Cure(Cure const& copy)

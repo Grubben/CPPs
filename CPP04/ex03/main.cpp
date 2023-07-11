@@ -7,6 +7,9 @@
 int	main(void)
 {
 
+	int*	ptr = NULL;
+	delete ptr;
+	
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -19,21 +22,26 @@ int	main(void)
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
-	ICharacter* bob = new Character("bob");
+	Character* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
 
+
+	AMateria*	icemat = new Ice();
+	me->equip(icemat);
+	me->equip(icemat);
+	me->equip(icemat);
+	me->equip(icemat);
+	me->equip(icemat);
+	// delete icemat;
+
+	ICharacter*	cp = new Character(*bob);
+	delete cp;
+	
 	delete bob;
 	delete me;
 	delete src;
-
-	// Ice	icemat;
-	// me->equip(&icemat);
-	// me->equip(&icemat);
-	// me->equip(&icemat);
-	// me->equip(&icemat);
-	// me->equip(&icemat);
 
 	return 0;
 }

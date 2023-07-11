@@ -13,8 +13,8 @@ protected:
 	std::string name;
 	AMateria	*inv[4];
 
-public:
 	Character(void);
+public:
 	Character(std::string const& name);
 	Character(const Character &copy);
 	virtual ~Character(void);
