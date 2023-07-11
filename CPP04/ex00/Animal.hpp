@@ -8,8 +8,8 @@ protected:
 	std::string type;
 public:
 	Animal();
-	Animal(const Animal& animal);
 	Animal(std::string newType);
+	Animal(const Animal& animal);
 	virtual ~Animal();
 
 	Animal	&operator= (const Animal &copy);

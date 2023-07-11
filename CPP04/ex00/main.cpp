@@ -24,5 +24,13 @@ int	main(void)
 	std::cout << wi->getType() << " " << std::endl;
 	wi->makeSound(); //will output the cat sound!
 	Wmeta->makeSound();
+	
+	std::cout << std::endl;
 
+	delete meta;
+	delete j;
+	delete i;
+
+	delete Wmeta;
+	delete wi; // missing destructor of Cat
 }

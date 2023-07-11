@@ -2,16 +2,16 @@
 
 Cat::Cat()
 	: Animal("felix")
-	, derType("cat")
+	, type("cat")
 {
 	brain = new Brain();
-	std::cout << "Cat " << derType;
+	std::cout << "Cat " << type;
 	std::cout << " created" << std::endl;
 }
 
 Cat::Cat(const Cat &copy)
 	: Animal("felix")
-	, derType(copy.derType)
+	, type(copy.type)
 {
 	std::cout << "Cat copy constructor called" << std::endl; 
 	// brain = new Brain(*copy.brain);
@@ -20,7 +20,7 @@ Cat::Cat(const Cat &copy)
 
 Cat::~Cat()
 {
-	std::cout << "Cat " << derType;
+	std::cout << "Cat " << type;
 	std::cout << " destroyed" << std::endl;
 	delete brain;
 }
@@ -29,7 +29,7 @@ Cat	&Cat::operator= (const Cat &copy)
 {
 	if (this != &copy)
 	{
-		derType = copy.derType;
+		type = copy.type;
 		delete brain;
 		brain = new Brain(*copy.brain);
 	}

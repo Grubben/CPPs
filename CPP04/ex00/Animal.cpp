@@ -14,6 +14,13 @@ Animal::Animal(std::string newType)
 	std::cout << " created" << std::endl;
 }
 
+Animal::Animal(const Animal& animal)
+	: type(animal.type)
+{
+	std::cout << "Animal of type " << type;
+	std::cout << " created" << std::endl;
+}
+
 Animal::~Animal()
 {
 	std::cout << "Animal of type " << type;

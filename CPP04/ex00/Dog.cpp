@@ -2,14 +2,13 @@
 
 Dog::Dog()
 	: Animal("canis")
-	, derType("dog")
 {
-	std::cout << "Dog " << derType;
+	std::cout << "Dog " << type;
 	std::cout << " created" << std::endl;
 }
 Dog::~Dog()
 {
-	std::cout << "Dog " << derType;
+	std::cout << "Dog " << type;
 	std::cout << " destroyed" << std::endl;
 }
 
@@ -17,7 +16,7 @@ Dog	&Dog::operator= (const Dog &copy)
 {
 	if (this != &copy)
 	{
-		derType = copy.derType;
+		type = copy.type;
 	}
 	return (*this);
 }

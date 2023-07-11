@@ -2,10 +2,10 @@
 
 Dog::Dog()
 	: Animal("canis")
-	, derType("dog")
+	, type("dog")
 {
 	brain = new Brain();
-	std::cout << "Dog " << derType;
+	std::cout << "Dog " << type;
 	std::cout << " created" << std::endl;
 }
 
@@ -17,7 +17,7 @@ Dog::Dog(const Dog &copy)
 
 Dog::~Dog()
 {
-	std::cout << "Dog " << derType;
+	std::cout << "Dog " << type;
 	std::cout << " destroyed" << std::endl;
 	delete brain;
 }
@@ -26,7 +26,7 @@ Dog	&Dog::operator= (const Dog &copy)
 {
 	if (this != &copy)
 	{
-		derType = copy.derType;
+		type = copy.type;
 		delete brain;
 		brain = new Brain(*copy.brain);
 	}

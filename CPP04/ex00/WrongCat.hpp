@@ -4,11 +4,11 @@
 class WrongCat : public WrongAnimal
 {
 private:
-	std::string derType;
+	std::string type;
 public:
 	WrongCat();
 	WrongCat(const WrongCat &copy);
-	virtual ~WrongCat();
+	~WrongCat();
 
 	WrongCat	&operator= (const WrongCat &copy);
 

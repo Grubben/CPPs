@@ -3,8 +3,6 @@
 
 class Cat : public Animal
 {
-private:
-	std::string derType;
 public:
 	Cat();
 	Cat(const Cat &copy);

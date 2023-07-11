@@ -2,15 +2,14 @@
 
 Cat::Cat()
 	: Animal("felix")
-	, derType("cat")
 {
-	std::cout << "Cat " << derType;
+	std::cout << "Cat " << type;
 	std::cout << " created" << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat " << derType;
+	std::cout << "Cat " << type;
 	std::cout << " destroyed" << std::endl;
 }
 
@@ -18,7 +17,7 @@ Cat	&Cat::operator= (const Cat &copy)
 {
 	if (this != &copy)
 	{
-		derType = copy.derType;
+		type = copy.type;
 	}
 	return (*this);
 }

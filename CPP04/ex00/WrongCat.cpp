@@ -2,15 +2,15 @@
 
 WrongCat::WrongCat()
 	: WrongAnimal("felix")
-	, derType("cat")
+	, type("cat")
 {
-	std::cout << "WrongCat " << derType;
+	std::cout << "WrongCat " << type;
 	std::cout << " created" << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat " << derType;
+	std::cout << "WrongCat " << type;
 	std::cout << " destroyed" << std::endl;
 }
 
@@ -18,7 +18,7 @@ WrongCat	&WrongCat::operator= (const WrongCat &copy)
 {
 	if (this != &copy)
 	{
-		derType = copy.derType;
+		type = copy.type;
 	}
 	return (*this);
 }
