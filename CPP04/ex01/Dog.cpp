@@ -2,11 +2,10 @@
 
 Dog::Dog()
 	: Animal("canis")
-	, type("dog")
 {
-	brain = new Brain();
 	std::cout << "Dog " << type;
 	std::cout << " created" << std::endl;
+	brain = new Brain();
 }
 
 Dog::Dog(const Dog &copy)

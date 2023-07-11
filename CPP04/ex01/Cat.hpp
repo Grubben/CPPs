@@ -5,7 +5,7 @@
 class Cat : public Animal
 {
 private:
-	std::string type;
+	Brain		*brain;
 public:
 	Cat();
 	Cat(const Cat &copy);
@@ -15,5 +15,4 @@ public:
 
 	void makeSound() const;
 
-	Brain		*brain;
 };
