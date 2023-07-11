@@ -12,8 +12,8 @@ class Character : public ICharacter
 protected:
 	std::string name;
 	AMateria	*inv[4];
-public:
 
+public:
 	Character(void);
 	Character(std::string const& name);
 	Character(const Character &copy);

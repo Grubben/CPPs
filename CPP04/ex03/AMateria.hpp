@@ -10,8 +10,8 @@ protected:
     std::string type;
 public:
     AMateria(void);
+    AMateria(const std::string& type);
     AMateria(const AMateria &copy);
-    AMateria(std::string const & type);
     virtual ~AMateria(void);
 
     AMateria	&operator = (const AMateria &copy);

@@ -4,7 +4,7 @@ void	setinvent(AMateria* inv[4])
 {
 	for (int i = 0; i < 4; i++)
 	{
-		inv[i] = nullptr;
+		inv[i] = NULL;
 	}
 }
 
@@ -27,18 +27,26 @@ Character::Character(std::string const& name)
 Character::Character(const Character &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
 	setinvent(this->inv);
+	*this = copy;
 }
 
 Character::~Character(void)
 {
 	std::cout << "Destructor called" << std::endl;
+	delete inv[0];
+	delete inv[1];
+	delete inv[2];
+	delete inv[3];
 }
 
 Character	&Character::operator = (const Character &copy)
 {
 	std::cout << "Assignation operator called" << std::endl;
+	delete inv[0];
+	delete inv[1];
+	delete inv[2];
+	delete inv[3];
 	name = copy.name;
 	inv[0] = copy.inv[0];
 	inv[1] = copy.inv[1];
@@ -56,7 +64,7 @@ void	Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] == nullptr)
+		if (inv[i] == NULL)
 		{
 			inv[i] = m;
 			return ;
@@ -68,11 +76,11 @@ void	Character::equip(AMateria* m)
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3)
-		inv[idx] = nullptr;
+		inv[idx] = NULL;
 }
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx >=0 && idx <= 3 && inv[idx] != nullptr)
+	if (idx >=0 && idx <= 3 && inv[idx] != NULL)
 	{
 		inv[idx]->use(target);
 	}

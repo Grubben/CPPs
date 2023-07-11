@@ -5,13 +5,18 @@ MateriaSource::MateriaSource(void)
 	std::cout << "Constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		inv[i] = nullptr;
+		inv[i] = NULL;
 	}
 }
 
 MateriaSource::~MateriaSource(void)
 {
 	std::cout << "Destructor called" << std::endl;
+	delete inv[0];
+	delete inv[1];
+	delete inv[2];
+	delete inv[3];
+
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
@@ -38,7 +43,7 @@ void	MateriaSource::learnMateria(AMateria* amat)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inv[i] == nullptr)
+		if (inv[i] == NULL)
 		{
 			inv[i] = amat;
 			return ;
@@ -49,11 +54,11 @@ void	MateriaSource::learnMateria(AMateria* amat)
 
 AMateria*	MateriaSource::createMateria(const std::string& type)
 {
-	AMateria*	newmat = nullptr;
+	AMateria*	newmat = NULL;
 
 	for (int i = 3; i >= 0; i--)
 	{
-		if (inv[i] != nullptr && inv[i]->getType() == type)
+		if (inv[i] != NULL && inv[i]->getType() == type)
 		{
 			newmat = inv[i]->clone();
 		}

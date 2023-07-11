@@ -11,7 +11,7 @@ AMateria::AMateria(const AMateria &copy)
     *this = copy;
 }
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(const std::string& type)
 {
     this->type = type;
 }
