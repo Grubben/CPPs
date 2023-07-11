@@ -2,7 +2,6 @@
 
 Cat::Cat()
 	: Animal("felix")
-	, type("cat")
 {
 	brain = new Brain();
 	std::cout << "Cat " << type;
@@ -10,11 +9,8 @@ Cat::Cat()
 }
 
 Cat::Cat(const Cat &copy)
-	: Animal("felix")
-	, type(copy.type)
 {
 	std::cout << "Cat copy constructor called" << std::endl; 
-	// brain = new Brain(*copy.brain);
 	*this = copy;
 }
 

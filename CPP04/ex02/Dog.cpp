@@ -2,7 +2,6 @@
 
 Dog::Dog()
 	: Animal("canis")
-	, type("dog")
 {
 	brain = new Brain();
 	std::cout << "Dog " << type;
