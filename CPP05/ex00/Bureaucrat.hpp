@@ -27,13 +27,13 @@ public:
 
 	class GradeTooHighException : public std::exception {
 		public:
-			virtual const char* what() const _NOEXCEPT {
+			virtual const char* what() const throw() {
 				return "GradeTooHighException";
 			}
 	};
 	class GradeTooLowException : public std::exception {
 		public:
-			virtual const char* what() const _NOEXCEPT {
+			virtual const char* what() const throw() {
 				return "GradeTooLowException";
 			}
 	};
