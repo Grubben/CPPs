@@ -4,6 +4,8 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
+#define nl std::cout << std::endl;
+
 int	main(void)
 {
 
@@ -34,11 +36,13 @@ int	main(void)
 	me->equip(icemat);
 	me->equip(icemat);
 	me->equip(icemat);
-	// delete icemat;
-
+	nl
+	me->unequip(2);
+	delete icemat;
+	nl
 	ICharacter*	cp = new Character(*bob);
 	delete cp;
-	
+	nl
 	delete bob;
 	delete me;
 	delete src;

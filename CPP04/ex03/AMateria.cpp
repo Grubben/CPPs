@@ -2,12 +2,12 @@
 
 AMateria::AMateria(void)
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "AMateria Constructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "AMateria Copy constructor called" << std::endl;
     *this = copy;
 }
 
@@ -18,13 +18,13 @@ AMateria::AMateria(const std::string& type)
 
 AMateria::~AMateria(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "AMateria Destructor called" << std::endl;
 }
 
 
 AMateria	&AMateria::operator = (const AMateria &copy)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << "AMateria Assignment operator called" << std::endl;
     type = copy.type;
     return (*this);
 }

@@ -11,28 +11,28 @@ void	setinvent(AMateria* inv[4])
 Character::Character(void)
 	: name("UnNamed")
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Character Constructor called" << std::endl;
 	setinvent(this->inv);
 }
 
 Character::Character(std::string const& name)
 	: name(name)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Character Constructor called" << std::endl;
 	setinvent(this->inv);
 }
 
 
 Character::Character(const Character &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Character Copy constructor called" << std::endl;
 	setinvent(this->inv);
 	*this = copy;
 }
 
 Character::~Character(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Character Destructor called" << std::endl;
 	delete inv[0];
 	delete inv[1];
 	delete inv[2];
@@ -41,7 +41,7 @@ Character::~Character(void)
 
 Character	&Character::operator = (const Character &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Character Assignation operator called" << std::endl;
 	name = copy.name;
 	for (unsigned int i = 0; i < 4; i++)
 	{
@@ -81,7 +81,15 @@ void	Character::equip(AMateria* m)
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3)
-		inv[idx] = NULL;
+	{
+		if (inv[idx])
+		{
+			std::cout << "Unequipped " << inv[idx]->getType() << std::endl;
+			inv[idx] = NULL;
+		}
+		else
+			std::cout << "Nothing to unequip here" << std::endl;
+	}
 }
 void	Character::use(int idx, ICharacter& target)
 {

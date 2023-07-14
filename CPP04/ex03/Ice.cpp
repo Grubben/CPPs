@@ -3,23 +3,23 @@
 Ice::Ice(void)
 	: AMateria("ice")
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Ice Constructor called" << std::endl;
 }
 
 Ice::~Ice(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Ice Destructor called" << std::endl;
 }
 
 Ice::Ice(Ice const& copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Ice Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Ice	&Ice::operator = (const Ice &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Ice Assignation operator called" << std::endl;
 	type = copy.type;
 	return (*this);
 }

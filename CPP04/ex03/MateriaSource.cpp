@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource(void)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "MateriaSource Constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		inv[i] = NULL;
@@ -11,7 +11,7 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::~MateriaSource(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "MateriaSource Destructor called" << std::endl;
 	delete inv[0];
 	delete inv[1];
 	delete inv[2];
@@ -21,14 +21,14 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "MateriaSource Copy constructor called" << std::endl;
 	if (this != &copy)
 		*this = copy;
 }
 
 MateriaSource	&MateriaSource::operator = (const MateriaSource &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "MateriaSource Assignation operator called" << std::endl;
 	if (this != &copy)
 	{
 		inv[0] = copy.inv[0];

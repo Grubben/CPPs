@@ -13,13 +13,13 @@ Cure::~Cure(void)
 
 Cure::Cure(Cure const& copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Cure Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Cure	&Cure::operator = (const Cure &copy)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Cure Assignation operator called" << std::endl;
 	type = copy.type;
 	return (*this);
 }
