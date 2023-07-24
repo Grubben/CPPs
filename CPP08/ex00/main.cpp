@@ -9,7 +9,16 @@ int main(int, char**)
 
     v.push_back(1);
     v.push_back(3);
-    v.push_back(2);
+    // v.push_back(2);
+    v.push_back(4);
 
-    easyfind<std::vector<int> >(v, 2);
+    try
+    {
+        std::cout << *(easyfind<std::vector<int> >(v, 2) + 1) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    return 0;
 }
