@@ -6,13 +6,11 @@ Span::Span(void)
 }
 
 Span::Span(unsigned int N)
-	: vec(N)
 {
 	std::cout << "Span constructor called" << std::endl;
-	// capacity = N;
-	// idx = 0;
-	// storage = new int[N];
+	vec.reserve(N);
 }
+
 Span::Span(const Span& copy)
 {
 	std::cout << "Span copy constructor called" << std::endl;
@@ -22,7 +20,6 @@ Span::Span(const Span& copy)
 Span::~Span(void)
 {
 	std::cout << "Span destructor called" << std::endl;
-	// delete[] storage;
 }
 
 Span&	Span::operator= (const Span& copy)
@@ -30,14 +27,6 @@ Span&	Span::operator= (const Span& copy)
 	std::cout << "Span assignment operator called" << std::endl;
 	if (this != &copy)
 	{
-		// capacity = copy.capacity;
-		// idx = copy.idx;
-		// delete[] storage;
-		// storage = new int[capacity];
-		// for (unsigned int i = 0; i < capacity; i++)
-		// {
-		// 	storage[i] = copy.storage[i];
-		// }
 		vec = copy.vec;
 	}
 	return (*this);
@@ -45,33 +34,43 @@ Span&	Span::operator= (const Span& copy)
 
 void	Span::addNumber(int addme)
 {
-	if (idx >= capacity)
+	if (vec.size() >= vec.capacity())
 		throw std::domain_error("Span is already full");
 	else
-	{
-		storage[idx] = addme;
-		idx++;
-	}
-}
-
-size_t	Span::longestSpan()
-{
-	int	smallest = storage[0];
-	for (size_t i = 0; i < capacity; i++)
-	{
-		if (storage[i] < smallest)
-			smallest = storage[i];
-	}
-	int	biggest = storage[0];
-	for (size_t i = 0; i < capacity; i++)
-	{
-		if (storage[i] > biggest)
-			biggest = storage[i];
-	}
-	return (biggest - smallest);
+		vec.push_back(addme);
 }
 
 size_t	Span::shortestSpan()
 {
+	if (vec.size() < 2)
+		throw std::length_error("Not enough numbers in Span");
 
+	std::vector<int>	temp(vec);
+
+	std::sort(temp.begin(), temp.end());
+	// std::cout << temp[0] << std::endl;
+	// std::cout << temp[1] << std::endl;
+	// std::cout << temp[2] << std::endl;
+
+	int mindiff = temp[1] - temp[0];
+	// std::cout << mindiff << std::endl;
+
+	for (unsigned int i = 1; i < temp.size(); i++)
+	{
+		if (temp[i] - temp[i - 1] < mindiff)
+		{
+			mindiff = temp[i] - temp[i - 1];
+			// std::cout << mindiff << std::endl;
+		}
+	}
+	
+	return mindiff;
+}
+
+size_t	Span::longestSpan()
+{
+	if (vec.size() > 1)
+		return (*std::max_element(vec.begin(), vec.end()) - *std::min_element(vec.begin(), vec.end()));
+	else
+		throw std::length_error("Not enough numbers in Span");
 }

@@ -6,6 +6,7 @@
 class Span
 {
 private:
+	
 	std::vector<int>	vec;
 
 	Span(void);
