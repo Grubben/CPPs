@@ -4,8 +4,10 @@
 
 // #define std::stack<T> stack
 
-template <typename T, class Container = std::deque<T> >
-class MutantStack : public std::stack<T, Container>
+// template <typename T, typename Container = std::deque<T> >
+// class MutantStack : public std::stack<T,Container>
+template <typename T>
+class MutantStack : public std::stack<T>
 {
 public:
 	MutantStack() : std::stack<T>()
@@ -19,16 +21,17 @@ public:
 
 	MutantStack&	operator= (const MutantStack& copy)
 	{
-		std::stack<T,Container>::operator=(copy);
+		std::stack<T>::operator=(copy);
 	}
 
-	typename std::stack<T,Container>::container_type::iterator begin()
+	// typedef typename std::stack<T>::container_type::iterator iterator;
+	typename std::stack<T>::container_type::iterator begin()
 	{
-		return std::stack<T,Container>::c.begin();
+		return std::stack<T>::c.begin();
 	}
 
-	typename std::stack<T,Container>::container_type::iterator end()
+	typename std::stack<T>::container_type::iterator end()
 	{
-		return std::stack<T,Container>::c.end();
+		return std::stack<T>::c.end();
 	}
 };
