@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
-#include <vector>
 #include "Span.hpp"
+// #include <vector>
 
 int main(int, char**)
 {
@@ -12,12 +12,27 @@ int main(int, char**)
     sp.addNumber(17);
     sp.addNumber(9);
     sp.addNumber(11);
-    sp.addNumber(22);
+    // sp.addNumber(22);
 
-    std::cout << sp.shortestSpan() << std::endl;
+    // std::cout << sp.shortestSpan() << std::endl;
     // std::cout << sp.longestSpan() << std::endl;
 
-    // Span    v(2);
+    Span    s(200);
+    std::vector<int> nums;
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    nums.push_back(1);
+    
+    // s.add(nums);
+    s.add(nums.begin(), nums.end());
+    std::cout << s.shortestSpan() << std::endl;
+    std::cout << s.longestSpan() << std::endl;
 
     // v.addNumber(12);
     // v.addNumber(8);

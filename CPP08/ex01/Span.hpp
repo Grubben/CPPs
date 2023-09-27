@@ -18,6 +18,22 @@ public:
 	Span&	operator= (const Span& copy);
 
 	void	addNumber(int addme);
+
+	template <typename C>
+	void	add(C range)
+	{
+		for (typename C::iterator it = range.begin(); it != range.end(); it++)
+		{
+			addNumber(*it);
+		}
+	}
+	template <typename InputIt>
+	void	add(InputIt first, InputIt last)
+	{
+		for (; first != last; first++)
+			addNumber(*first);
+	}
+
 	size_t	shortestSpan();
 	size_t	longestSpan();
 };
