@@ -26,7 +26,7 @@ std::pair<std::string,double>    daterateCheck(std::string& entry)
 
 BitcoinExchange::BitcoinExchange(const std::string dbFilename)
 {
-	std::cout << "BitcoinExchange constructor called" << std::endl;
+	// std::cout << "BitcoinExchange constructor called" << std::endl;
 
 	std::ifstream entrylist(dbFilename.c_str());
     if (entrylist.is_open() == false)
@@ -40,18 +40,18 @@ BitcoinExchange::BitcoinExchange(const std::string dbFilename)
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
 {
-	std::cout << "BitcoinExchange copy constructor called" << std::endl;
+	// std::cout << "BitcoinExchange copy constructor called" << std::endl;
 	*this = copy;
 }
 
 BitcoinExchange::~BitcoinExchange(void)
 {
-	std::cout << "BitcoinExchange destructor called" << std::endl;
+	// std::cout << "BitcoinExchange destructor called" << std::endl;
 }
 
 BitcoinExchange&	BitcoinExchange::operator= (const BitcoinExchange& copy)
 {
-	std::cout << "BitcoinExchange assignment operator called" << std::endl;
+	// std::cout << "BitcoinExchange assignment operator called" << std::endl;
 	if (this != &copy)
 	{
         bexmap = copy.bexmap;
