@@ -16,4 +16,6 @@ public:
 	~BitcoinExchange(void);
 
 	BitcoinExchange&	operator= (const BitcoinExchange& copy);
+
+	void	dateValueCalculator(const std::string ifname) const;
 };

@@ -32,7 +32,7 @@ BitcoinExchange::BitcoinExchange(const std::string dbFilename)
 
 	std::ifstream entrylist(dbFilename.c_str());
     if (entrylist.is_open() == false)
-        return;
+        throw std::runtime_error("Couldn't open database file");
 
 	std::string entry;
     std::getline(entrylist, entry); // skips the header: "date, exchange_rate"
@@ -59,4 +59,15 @@ BitcoinExchange&	BitcoinExchange::operator= (const BitcoinExchange& copy)
         bexmap = copy.bexmap;
     }
 	return (*this);
+}
+
+void    BitcoinExchange::dateValueCalculator(const std::string ifname) const
+{
+	std::ifstream input(ifname.c_str());
+    if (input.is_open() == false)
+        throw std::runtime_error("Couldn't open input file");
+
+	std::string line;
+	while (std::getline(input, line))
+    {}
 }
