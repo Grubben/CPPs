@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
-#include <random>
+// #include <random>
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(void)
 	: AForm()
@@ -37,12 +38,13 @@ RobotomyRequestForm&	RobotomyRequestForm::operator= (const RobotomyRequestForm& 
 void	RobotomyRequestForm::action() const
 {
 	/*Overkill on the random but it's correct*/
-	std::random_device	rd;
-	std::mt19937 mt(rd());
-	std::uniform_int_distribution<bool> dist01(0, 1);
+	// std::random_device	rd;
+	// std::mt19937 mt(rd());
+	// std::uniform_int_distribution<bool> dist01(0, 1);
 
 	std::cout << "Drilling Noises\n";
-	if (dist01(mt))
+	// if (dist01(mt))
+	if (std::rand() % 2 == 0)
 		std::cout << this->getName() << " has been robotomized";
 	else
 		std::cout << this->getName() << " robotomization failed";

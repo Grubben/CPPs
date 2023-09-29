@@ -33,5 +33,5 @@ AForm*	Intern::makeForm(const std::string& type, const std::string& target ) con
 	else if (type == "shrubbery creation form")
 		return new ShrubberyCreationForm(target);
 	else
-		return nullptr;
+		return NULL;
 }
