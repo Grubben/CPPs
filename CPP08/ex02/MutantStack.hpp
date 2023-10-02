@@ -24,7 +24,7 @@ public:
 		std::stack<T>::operator=(copy);
 	}
 
-	// typedef typename std::stack<T>::container_type::iterator iterator;
+	typedef typename std::stack<T>::container_type::iterator iterator;
 	typename std::stack<T>::container_type::iterator begin()
 	{
 		return std::stack<T>::c.begin();
