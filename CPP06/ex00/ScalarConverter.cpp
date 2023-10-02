@@ -1,5 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <cmath>
+#include <cstdlib>
+#include <iomanip>
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -38,7 +40,7 @@ void	representChar(const std::string& literal)
 	std::cout << "Char: ";
 	try
 	{
-		unsigned char	num = static_cast<unsigned char>(std::stod(literal));
+		unsigned char	num = static_cast<unsigned char>(std::atoi(literal.c_str()));
 		if (std::isprint(num))
 		{
 			std::cout << "'" << (num) << "'";
@@ -66,7 +68,7 @@ void	representInt(const std::string& literal)
 	{
 		if (isPseudoLit(literal))
 			throw std::exception();
-		std::cout << static_cast<int>(std::stod(literal));
+		std::cout << static_cast<int>(std::atoi(literal.c_str()));
 	}
 	catch(const std::exception& e)
 	{
@@ -82,7 +84,7 @@ void	representFloat(const std::string& literal)
 
 	try
 	{
-		std::cout << std::stof(literal) << "f";
+		std::cout << std::fixed << std::setprecision(1) << std::atof(literal.c_str()) << "f";
 	}
 	catch(const std::exception& e)
 	{
@@ -98,10 +100,8 @@ void	representDouble(const std::string& literal)
 
 	try
 	{
-		double num = std::stod(literal);
-		std::cout << num;
-		if (num == std::floor(num))
-			std::cout << ".0";
+		double num = std::strtod(literal.c_str(), NULL);
+		std::cout << std::fixed << std::setprecision(1) << num;
 	}
 	catch(const std::exception& e)
 	{
