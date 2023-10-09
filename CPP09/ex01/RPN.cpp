@@ -68,7 +68,7 @@ int RPN::splitNstack(const std::string input, const std::string delimiter)
 RPN::RPN(const std::string& expression)
 	: expression(expression)
 {
-	std::cout << "RPN constructor called" << std::endl;
+	// std::cout << "RPN constructor called" << std::endl;
 }
 
 RPN::RPN(const RPN& copy)
@@ -80,7 +80,7 @@ RPN::RPN(const RPN& copy)
 
 RPN::~RPN(void)
 {
-	std::cout << "RPN destructor called" << std::endl;
+	// std::cout << "RPN destructor called" << std::endl;
 }
 
 RPN&	RPN::operator= (const RPN& copy)
@@ -95,7 +95,7 @@ RPN&	RPN::operator= (const RPN& copy)
 
 int	RPN::calculate()
 {
-	std::cout << expression << std::endl;
+	// std::cout << expression << std::endl;
 	std::cout << splitNstack(expression, " ") << std::endl;
 	return 1;
 }

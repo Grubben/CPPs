@@ -5,7 +5,7 @@ int main(int argc, char*argv[])
 {
     if (argc != 2)
     {
-        std::cout << "Wrong No of Args" << std::endl;
+        std::cout << "ERROR" << std::endl;
         return 0;
     }
     try
