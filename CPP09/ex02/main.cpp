@@ -10,7 +10,8 @@ int main(int argc, char*argv[])
     // }
     try
     {
-        PmergeMe(argc - 1, argv + 1);
+        PmergeMe    pmm(argc - 1, argv + 1);
+        pmm.showSorted();
     }
     catch(const std::exception& e)
     {

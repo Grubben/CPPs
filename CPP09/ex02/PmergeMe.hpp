@@ -15,4 +15,17 @@ public:
 	~PmergeMe(void);
 
 	PmergeMe&	operator= (const PmergeMe& copy);
+
+	void	showSorted();
 };
+
+
+template <typename C>
+std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist)
+{
+	for (std::list<int>::const_iterator it = dtlist.begin(); it != dtlist.end(); it++)
+	{
+		os << *it << " ";
+	}
+	return os;
+}

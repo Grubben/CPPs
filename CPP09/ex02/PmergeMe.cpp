@@ -1,6 +1,7 @@
 #include "PmergeMe.hpp"
 #include <cstdlib>
 #include <stdexcept>
+#include <ctime>
 
 PmergeMe::PmergeMe(int argsn, char *args[])
 {
@@ -35,4 +36,20 @@ PmergeMe&	PmergeMe::operator= (const PmergeMe& copy)
 	if (this != &copy)
 	{}
 	return (*this);
+}
+
+/*	MICROSECONDS	*/
+
+uint64_t	now()
+{
+	struct timespec ts;
+	clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
+	return ts.tv_sec * 1000000 + ts.tv_nsec / 1000;
+}
+
+void	PmergeMe::showSorted()
+{
+	uint64_t	start = now();
+	dtlist.sort();
+	std::cout << now() - start << " us" << std::endl;
 }
