@@ -1,8 +1,11 @@
 #pragma once
+#ifndef PMERGEME_H
+# define PMERGEME_H
 #include <iostream>
 #include <chrono>
 #include <vector>
 #include <list>
+#include <deque>
 
 class PmergeMe
 {
@@ -20,12 +23,8 @@ public:
 };
 
 
-template <typename C>
-std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist)
-{
-	for (std::list<int>::const_iterator it = dtlist.begin(); it != dtlist.end(); it++)
-	{
-		os << *it << " ";
-	}
-	return os;
-}
+std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist);
+
+std::ostream&	operator<<(std::ostream& os, const std::vector<int>& dtvector);
+
+#endif
