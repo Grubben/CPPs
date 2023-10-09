@@ -5,7 +5,7 @@
 
 PmergeMe::PmergeMe(int argsn, char *args[])
 {
-	std::cout << "PmergeMe constructor called" << std::endl;
+	// std::cout << "PmergeMe constructor called" << std::endl;
 	for (int i = 0; i < argsn; i++)
 	{
 		const std::string arg = args[i];
@@ -14,6 +14,8 @@ PmergeMe::PmergeMe(int argsn, char *args[])
 		{
 			throw std::runtime_error("bad number given");
 		}
+		if (tmp < 0)
+			throw std::runtime_error("negative value given");
 		dtvec.push_back(tmp);
 		dtlist.push_back(tmp);
 	}
@@ -21,18 +23,18 @@ PmergeMe::PmergeMe(int argsn, char *args[])
 
 PmergeMe::PmergeMe(const PmergeMe& copy)
 {
-	std::cout << "PmergeMe copy constructor called" << std::endl;
+	// std::cout << "PmergeMe copy constructor called" << std::endl;
 	*this = copy;
 }
 
 PmergeMe::~PmergeMe(void)
 {
-	std::cout << "PmergeMe destructor called" << std::endl;
+	// std::cout << "PmergeMe destructor called" << std::endl;
 }
 
 PmergeMe&	PmergeMe::operator= (const PmergeMe& copy)
 {
-	std::cout << "PmergeMe assignment operator called" << std::endl;
+	// std::cout << "PmergeMe assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		dtvec = copy.dtvec;
