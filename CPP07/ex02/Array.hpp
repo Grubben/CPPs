@@ -20,7 +20,7 @@ public:
 		arr = new T[n];
 		len = n;
 	}
-	Array(const Array<T>& copy)
+	Array(const Array& copy)
 	{
 		std::cout << "Array copy constructor called" << std::endl;
 		*this = copy;
