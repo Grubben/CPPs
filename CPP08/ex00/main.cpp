@@ -14,7 +14,7 @@ int main(int, char**)
 
     try
     {
-        std::cout << *(easyfind<std::vector<int> >(v, 2) + 1) << std::endl;
+        std::cout << *(easyfind<std::vector<int> >(v, 3) + 1) << std::endl;
     }
     catch(const std::exception& e)
     {
