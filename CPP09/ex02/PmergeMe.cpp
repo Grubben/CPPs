@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <stdexcept>
 #include <ctime>
-
+#include <algorithm>
 PmergeMe::PmergeMe(int argsn, char *args[])
 {
 	// std::cout << "PmergeMe constructor called" << std::endl;
@@ -21,7 +21,7 @@ PmergeMe::PmergeMe(int argsn, char *args[])
 	}
 }
 
-PmergeMe::PmergeMe(const PmergeMe& copy)
+PmergeMe::PmergeMe(const PmergeMe &copy)
 {
 	// std::cout << "PmergeMe copy constructor called" << std::endl;
 	*this = copy;
@@ -32,7 +32,7 @@ PmergeMe::~PmergeMe(void)
 	// std::cout << "PmergeMe destructor called" << std::endl;
 }
 
-PmergeMe&	PmergeMe::operator= (const PmergeMe& copy)
+PmergeMe &PmergeMe::operator=(const PmergeMe &copy)
 {
 	// std::cout << "PmergeMe assignment operator called" << std::endl;
 	if (this != &copy)
@@ -45,38 +45,36 @@ PmergeMe&	PmergeMe::operator= (const PmergeMe& copy)
 
 /*	MICROSECONDS	*/
 
-uint64_t	now()
-{
-	struct timespec ts;
-	clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
-	return ts.tv_sec * 1000000 + ts.tv_nsec / 1000;
-}
 
-void	PmergeMe::showSorted()
+void PmergeMe::showSorted()
 {
-	uint64_t	start, stop;
+	// time_t start, stop;
+	clock_t start, stop;
 	std::cout << "Before:" << dtvec << std::endl;
 
-	start = now();
+	// time(&start);
+	start = clock();
 	std::sort(dtvec.begin(), dtvec.end());
-	stop = now();
+	// time(&stop);
+	stop = clock();
 
-	std::cout << "After_:" << dtvec << std::endl;
+	std::cout << "After:" << dtvec << std::endl;
 
 	std::cout << "Time to process a range of " << dtvec.size() << " elements with std::vector : ";
 	std::cout << stop - start << " us" << std::endl;
 
-	start = now();
+	// time(&start);
+	start = clock();
 	dtlist.sort();
 	// std::sort(dtlist.begin(), dtlist.end()); //for deque
-	stop = now();
+	// time(&stop);
+	stop = clock();
 
 	std::cout << "Time to process a range of " << dtlist.size() << " elements with std::list : ";
 	std::cout << stop - start << " us" << std::endl;
-
 }
 
-std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist)
+std::ostream &operator<<(std::ostream &os, const std::list<int> &dtlist)
 {
 	for (std::list<int>::const_iterator it = dtlist.begin(); it != dtlist.end(); it++)
 	{
@@ -86,7 +84,7 @@ std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist)
 	return os;
 }
 
-std::ostream&	operator<<(std::ostream& os, const std::vector<int>& dtvector)
+std::ostream &operator<<(std::ostream &os, const std::vector<int> &dtvector)
 {
 	for (std::vector<int>::const_iterator it = dtvector.begin(); it != dtvector.end(); it++)
 	{
