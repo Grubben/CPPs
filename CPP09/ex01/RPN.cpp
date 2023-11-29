@@ -1,38 +1,48 @@
 #include "RPN.hpp"
 #include <stdexcept>
-
-#define substring sust
-void	RPN::stackAffect(const std::string& substring)
+#include <cstdlib>
+#include <limits>
+long	sToLong(const std::string& st)
 {
-	if (!(sust == "+" || sust == "-"
-			|| sust == "*" || sust == "/"))
+	return std::atol(st.c_str());
+}
+
+void	RPN::stackAffect(const std::string& subst)
+{
+	if (!(subst == "+" || subst == "-"
+			|| subst == "*" || subst == "/"))
 	{
-		const int itmp = std::atoi(substring.c_str());
+		const double itmp = sToLong(subst);
 		iks.push(itmp);
 		return ;
 	}
 	if (iks.size() < 2)
 		throw std::runtime_error("not enough values for operation");
 
-	const int b = iks.top();
+	const double b = iks.top();
 	iks.pop();
-	const int a = iks.top();
+	const double a = iks.top();
 	iks.pop();
 
-	if (substring == "+")
+	if (subst == "+")
 		iks.push(a + b);
-	else if (substring == "-")
+	else if (subst == "-")
 		iks.push(a - b);
-	else if (substring == "*")
+	else if (subst == "*")
 		iks.push(a * b);
-	else if (substring == "/")
+	else if (subst == "/")
+	{
+		if (b == 0)
+			iks.push(std::numeric_limits<double>::infinity());
+		else
 		iks.push(a / b);
+	}
 	else
 		throw std::runtime_error("unreachable");
 }
 
 
-int RPN::splitNstack(const std::string input, const std::string delimiter)
+double RPN::splitNstack(const std::string input, const std::string delimiter)
 {
     size_t start = 0;
     size_t end = input.find(delimiter);
@@ -93,7 +103,7 @@ RPN&	RPN::operator= (const RPN& copy)
 	return (*this);
 }
 
-int	RPN::calculate()
+double	RPN::calculate()
 {
 	// std::cout << expression << std::endl;
 	std::cout << splitNstack(expression, " ") << std::endl;
