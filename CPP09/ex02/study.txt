@@ -1,0 +1,2 @@
+rng: https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
+algo: https://github.com/decidedlyso/merge-insertion-sort/blob/master/README.md
