@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <ctime>
 #include <algorithm>
+
 PmergeMe::PmergeMe(int argsn, char *args[])
 {
 	// std::cout << "PmergeMe constructor called" << std::endl;
@@ -59,11 +60,14 @@ std::vector<int> PmergeMe::sorted(std::vector<int> &cont)
 	std::vector<int> a;
 	std::vector<int> b;
 
-	for (std::vector<int>::iterator it = cont.begin(); it < cont.end(); it++)
+	for (std::vector<int>::iterator it = cont.begin(); it != cont.end(); it++)
 	{
 		b.push_back(*(it++));
 		if (it == cont.end())
+		{
 			a.push_back(-1);
+			break;
+		}
 		else
 			a.push_back(*it);
 	}
@@ -95,6 +99,7 @@ std::vector<int> PmergeMe::sorted(std::vector<int> &cont)
 	// std::cout << std::endl;
 
 	std::vector<int> sorted(b);
+	// sorted.reserve(dtvec.size());
 
 	if (a[0] != -1)
 		sorted.insert(sorted.begin(), a[0]);
@@ -106,27 +111,31 @@ std::vector<int> PmergeMe::sorted(std::vector<int> &cont)
 		while (pairpos != sorted.begin() && a[i] < *(pairpos - 1))
 			pairpos--;
 		sorted.insert(pairpos, a[i]);
-		std::cout << sorted << std::endl
-				  << std::endl;
+		// std::cout << sorted << std::endl
+		// 		  << std::endl;
 	}
 
 	return sorted;
 }
 
-std::deque<int> PmergeMe::sorted(std::deque<int>& cont)
+std::deque<int> PmergeMe::sorted(std::deque<int> &cont)
 {
 	std::deque<int> a;
 	std::deque<int> b;
 
 	for (std::deque<int>::iterator it = cont.begin(); it != cont.end(); it++)
 	{
-		b.push_back(*(it++));
+		b.push_back(*it);
+		it++;
 		if (it == cont.end())
+		{
 			a.push_back(-1);
+			break;
+		}
 		else
 			a.push_back(*it);
 	}
-	std::cout << "here" << std::endl;
+	// std::cout << "here" << std::endl;
 
 	for (std::size_t i = 0; i < b.size(); i++)
 	{
@@ -155,7 +164,6 @@ std::deque<int> PmergeMe::sorted(std::deque<int>& cont)
 	// std::cout << std::endl;
 
 	std::deque<int> sorted(b);
-
 	if (a[0] != -1)
 		sorted.insert(sorted.begin(), a[0]);
 	for (std::size_t i = 1; i < a.size(); i++)
@@ -166,8 +174,8 @@ std::deque<int> PmergeMe::sorted(std::deque<int>& cont)
 		while (pairpos != sorted.begin() && a[i] < *(pairpos - 1))
 			pairpos--;
 		sorted.insert(pairpos, a[i]);
-		std::cout << sorted << std::endl
-				  << std::endl;
+		// std::cout << sorted << std::endl
+		// 		  << std::endl;
 	}
 
 	return sorted;
@@ -176,26 +184,24 @@ std::deque<int> PmergeMe::sorted(std::deque<int>& cont)
 void PmergeMe::showSorted()
 {
 	clock_t start, stop;
-	std::cout << "Before:" << dtvec << std::endl;
+	// std::cout << "Before:" << dtvec << std::endl;
 
 	start = clock();
-	// std::sort(dtvec.begin(), dtvec.end());
 	std::vector<int> tmpvec = sorted(dtvec);
 	stop = clock();
-	std::cout << "After:" << tmpvec << std::endl;
-
+	// std::cout << "After:" << tmpvec << std::endl;
 
 	std::cout << "Time to process a range of " << dtvec.size() << " elements with std::vector : ";
-	std::cout << stop - start << " us" << std::endl;
+	std::cout << (stop - start) << " microSeconds" << std::endl;
 
-	std::cout << "Before:" << dtque << std::endl;
+	// std::cout << "Before:" << dtque << std::endl;
 	start = clock();
 	std::deque<int> tmpdq = sorted(dtque);
 	stop = clock();
-	std::cout << "After:" << tmpdq << std::endl;
+	// std::cout << "After:" << tmpdq << std::endl;
 
-	std::cout << "Time to process a range of " << dtque.size() << " elements with std::list : ";
-	std::cout << stop - start << " us" << std::endl;
+	std::cout << "Time to process a range of " << dtque.size() << " elements with std::deque  : ";
+	std::cout << stop - start << " microSeconds" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const std::deque<int> &dtdeque)
