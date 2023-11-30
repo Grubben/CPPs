@@ -1,6 +1,6 @@
 #pragma once
 #ifndef PMERGEME_H
-# define PMERGEME_H
+#define PMERGEME_H
 #include <iostream>
 #include <vector>
 #include <list>
@@ -9,21 +9,24 @@
 class PmergeMe
 {
 private:
-	std::vector<int>	dtvec;
-	std::list<int>		dtlist;
+	std::vector<int> dtvec;
+	std::deque<int> dtque;
+
 public:
 	PmergeMe(int argsn, char *args[]);
-	PmergeMe(const PmergeMe& copy);
+	PmergeMe(const PmergeMe &copy);
 	~PmergeMe(void);
 
-	PmergeMe&	operator= (const PmergeMe& copy);
+	PmergeMe &operator=(const PmergeMe &copy);
 
-	void	showSorted();
+	std::vector<int> sorted(std::vector<int>& cont);
+	std::deque<int> sorted(std::deque<int>& cont);
+
+	void showSorted();
 };
 
+std::ostream &operator<<(std::ostream &os, const std::deque<int> &dtque);
 
-std::ostream&	operator<<(std::ostream& os, const std::list<int>& dtlist);
-
-std::ostream&	operator<<(std::ostream& os, const std::vector<int>& dtvector);
+std::ostream &operator<<(std::ostream &os, const std::vector<int> &dtvector);
 
 #endif

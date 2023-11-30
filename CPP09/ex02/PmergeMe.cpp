@@ -17,7 +17,7 @@ PmergeMe::PmergeMe(int argsn, char *args[])
 		if (tmp < 0)
 			throw std::runtime_error("negative value given");
 		dtvec.push_back(tmp);
-		dtlist.push_back(tmp);
+		dtque.push_back(tmp);
 	}
 }
 
@@ -38,45 +38,169 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &copy)
 	if (this != &copy)
 	{
 		dtvec = copy.dtvec;
-		dtlist = copy.dtlist;
+		dtque = copy.dtque;
 	}
 	return (*this);
 }
 
-/*	MICROSECONDS	*/
+template <typename C>
+bool isSorted(C &cont)
+{
+	for (typename C::iterator it = cont.begin(); it != cont.end() - 1; it++)
+	{
+		if (*it > *(it + 1))
+			return false;
+	}
+	return true;
+}
 
+std::vector<int> PmergeMe::sorted(std::vector<int> &cont)
+{
+	std::vector<int> a;
+	std::vector<int> b;
+
+	for (std::vector<int>::iterator it = cont.begin(); it < cont.end(); it++)
+	{
+		b.push_back(*(it++));
+		if (it == cont.end())
+			a.push_back(-1);
+		else
+			a.push_back(*it);
+	}
+
+	for (std::size_t i = 0; i < b.size(); i++)
+	{
+		if (a[i] > b[i])
+		{
+			int tmp = a[i];
+			a[i] = b[i];
+			b[i] = tmp;
+		}
+	}
+
+	for (std::size_t i = 1; i < b.size(); i++)
+	{
+		std::size_t tmp = i;
+		std::size_t temp2 = i - 1;
+		while (tmp != 0 && b[tmp] < b[temp2])
+		{
+			std::swap(b[tmp], b[temp2]);
+			std::swap(a[tmp], a[temp2]);
+			--tmp;
+			--temp2;
+		}
+	}
+	// for (std::size_t i = 0; i < a.size(); i++)
+	// 	std::cout << a[i] << " " << b[i] << std::endl;
+	// std::cout << std::endl;
+
+	std::vector<int> sorted(b);
+
+	if (a[0] != -1)
+		sorted.insert(sorted.begin(), a[0]);
+	for (std::size_t i = 1; i < a.size(); i++)
+	{
+		if (a[i] == -1)
+			continue;
+		std::vector<int>::iterator pairpos = std::find(sorted.begin(), sorted.end(), b[i]);
+		while (pairpos != sorted.begin() && a[i] < *(pairpos - 1))
+			pairpos--;
+		sorted.insert(pairpos, a[i]);
+		std::cout << sorted << std::endl
+				  << std::endl;
+	}
+
+	return sorted;
+}
+
+std::deque<int> PmergeMe::sorted(std::deque<int>& cont)
+{
+	std::deque<int> a;
+	std::deque<int> b;
+
+	for (std::deque<int>::iterator it = cont.begin(); it != cont.end(); it++)
+	{
+		b.push_back(*(it++));
+		if (it == cont.end())
+			a.push_back(-1);
+		else
+			a.push_back(*it);
+	}
+	std::cout << "here" << std::endl;
+
+	for (std::size_t i = 0; i < b.size(); i++)
+	{
+		if (a[i] > b[i])
+		{
+			int tmp = a[i];
+			a[i] = b[i];
+			b[i] = tmp;
+		}
+	}
+
+	for (std::size_t i = 1; i < b.size(); i++)
+	{
+		std::size_t tmp = i;
+		std::size_t temp2 = i - 1;
+		while (tmp != 0 && b[tmp] < b[temp2])
+		{
+			std::swap(b[tmp], b[temp2]);
+			std::swap(a[tmp], a[temp2]);
+			--tmp;
+			--temp2;
+		}
+	}
+	// for (std::size_t i = 0; i < a.size(); i++)
+	// 	std::cout << a[i] << " " << b[i] << std::endl;
+	// std::cout << std::endl;
+
+	std::deque<int> sorted(b);
+
+	if (a[0] != -1)
+		sorted.insert(sorted.begin(), a[0]);
+	for (std::size_t i = 1; i < a.size(); i++)
+	{
+		if (a[i] == -1)
+			continue;
+		std::deque<int>::iterator pairpos = std::find(sorted.begin(), sorted.end(), b[i]);
+		while (pairpos != sorted.begin() && a[i] < *(pairpos - 1))
+			pairpos--;
+		sorted.insert(pairpos, a[i]);
+		std::cout << sorted << std::endl
+				  << std::endl;
+	}
+
+	return sorted;
+}
 
 void PmergeMe::showSorted()
 {
-	// time_t start, stop;
 	clock_t start, stop;
 	std::cout << "Before:" << dtvec << std::endl;
 
-	// time(&start);
 	start = clock();
-	std::sort(dtvec.begin(), dtvec.end());
-	// time(&stop);
+	// std::sort(dtvec.begin(), dtvec.end());
+	std::vector<int> tmpvec = sorted(dtvec);
 	stop = clock();
+	std::cout << "After:" << tmpvec << std::endl;
 
-	std::cout << "After:" << dtvec << std::endl;
 
 	std::cout << "Time to process a range of " << dtvec.size() << " elements with std::vector : ";
 	std::cout << stop - start << " us" << std::endl;
 
-	// time(&start);
+	std::cout << "Before:" << dtque << std::endl;
 	start = clock();
-	dtlist.sort();
-	// std::sort(dtlist.begin(), dtlist.end()); //for deque
-	// time(&stop);
+	std::deque<int> tmpdq = sorted(dtque);
 	stop = clock();
+	std::cout << "After:" << tmpdq << std::endl;
 
-	std::cout << "Time to process a range of " << dtlist.size() << " elements with std::list : ";
+	std::cout << "Time to process a range of " << dtque.size() << " elements with std::list : ";
 	std::cout << stop - start << " us" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &os, const std::list<int> &dtlist)
+std::ostream &operator<<(std::ostream &os, const std::deque<int> &dtdeque)
 {
-	for (std::list<int>::const_iterator it = dtlist.begin(); it != dtlist.end(); it++)
+	for (std::deque<int>::const_iterator it = dtdeque.begin(); it != dtdeque.end(); it++)
 	{
 		int tmp = *it;
 		os << " " << tmp;

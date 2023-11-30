@@ -11,6 +11,7 @@ int main(int argc, char*argv[])
     try
     {
         PmergeMe    pmm(argc - 1, argv + 1);
+        //TODO: check duplicates
         pmm.showSorted();
     }
     catch(const std::exception& e)
