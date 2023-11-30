@@ -184,21 +184,21 @@ std::deque<int> PmergeMe::sorted(std::deque<int> &cont)
 void PmergeMe::showSorted()
 {
 	clock_t start, stop;
-	// std::cout << "Before:" << dtvec << std::endl;
+	std::cout << "Before:" << dtvec << std::endl;
 
 	start = clock();
 	std::vector<int> tmpvec = sorted(dtvec);
 	stop = clock();
-	// std::cout << "After:" << tmpvec << std::endl;
+	std::cout << "After:" << tmpvec << std::endl;
 
 	std::cout << "Time to process a range of " << dtvec.size() << " elements with std::vector : ";
 	std::cout << (stop - start) << " microSeconds" << std::endl;
 
-	// std::cout << "Before:" << dtque << std::endl;
+	std::cout << "Before:" << dtque << std::endl;
 	start = clock();
 	std::deque<int> tmpdq = sorted(dtque);
 	stop = clock();
-	// std::cout << "After:" << tmpdq << std::endl;
+	std::cout << "After:" << tmpdq << std::endl;
 
 	std::cout << "Time to process a range of " << dtque.size() << " elements with std::deque  : ";
 	std::cout << stop - start << " microSeconds" << std::endl;
