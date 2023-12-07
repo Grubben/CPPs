@@ -1,9 +1,9 @@
-NAME		= rpn
+NAME		= RPN
 
 ## COMPILATION
 CXX			= c++
 # Compilation Flags
-CFLAGS		=-g -std=c++98 -Wall -Wextra #-Werror
+CFLAGS		=-g -std=c++98 -Wall -Wextra -Werror
 
 # Removal Flags. Not sure if necessary
 RM			= rm -rf
