@@ -184,8 +184,8 @@ std::deque<int> PmergeMe::sorted(std::deque<int> &cont)
 void PmergeMe::showSorted()
 {
 	clock_t start, stop;
-	std::cout << "Before:" << dtvec << std::endl;
 
+	std::cout << "Before:" << dtvec << std::endl;
 	start = clock();
 	std::vector<int> tmpvec = sorted(dtvec);
 	stop = clock();
